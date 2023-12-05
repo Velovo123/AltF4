@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.MainPage"
+             BackgroundColor="#201452">
+
+    <ScrollView>
+        
+        <VerticalStackLayout Spacing="20">
+            
+            <Label
+                    HeightRequest="1"/>
+            
+            <FlexLayout Direction="RowReverse" HeightRequest="25" >
+                
+                <Label
+                    HeightRequest="25"
+                    WidthRequest="15"/>
+
+                <Image 
+                   Source="settings.png"
+                   SemanticProperties.Description="SettingsButton"
+                   HeightRequest="25"
+                   WidthRequest="25"/>
+
+                <Label
+                    HeightRequest="25"
+                    WidthRequest="15"/>
+
+                <Image 
+                   Source="crown_icon_1.png"
+                   SemanticProperties.Description="PremiumButton"
+                   HeightRequest="25"
+                   WidthRequest="25"/>
+
+            </FlexLayout>
+
+            <Label
+                    HeightRequest="40"/>
+
+            <Image
+                Source="roadmap_1.png"
+                HeightRequest="170"
+                WidthRequest="170"
+                Aspect="AspectFit"
+                SemanticProperties.Description="image of roadmap" />
+
+            <Label
+                    HeightRequest="40"/>
+
+            <Button
+                x:Name="NewBtn"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="220"
+                Text="New"
+                FontFamily="TekoRegular"
+                FontSize="30"
+                FontAutoScalingEnabled="True"
+                TextColor="#bfc5ff"
+                BackgroundColor="#452FA8"
+                SemanticProperties.Hint="Create new roadmap"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="ContBtn"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="220"
+                Text="Continue" 
+                FontFamily="TekoRegular"
+                FontSize="30"
+                FontAutoScalingEnabled="True"
+                TextColor="#bfc5ff"
+                BackgroundColor="#452FA8"
+                SemanticProperties.Hint="load existing roadmap"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
