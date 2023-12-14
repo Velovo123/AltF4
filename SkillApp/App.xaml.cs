@@ -14,6 +14,8 @@ namespace SkillApp
         {
             InitializeComponent();
 
+            MainPage = new NavigationPage(new MainPage());
+
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
 #if WINDOWS

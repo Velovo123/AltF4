@@ -8,30 +8,38 @@
         
         <VerticalStackLayout Spacing="20">
             
-            <Label
-                    HeightRequest="1"/>
+            <!--<Label
+                    HeightRequest="1"/>-->
             
             <FlexLayout Direction="RowReverse" HeightRequest="25" >
                 
-                <Label
+                <!--<Label
                     HeightRequest="25"
-                    WidthRequest="15"/>
+                    WidthRequest="15"/>-->
 
-                <Image 
+                <ImageButton 
                    Source="settings.png"
                    SemanticProperties.Description="SettingsButton"
-                   HeightRequest="25"
-                   WidthRequest="25"/>
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   Padding="7"
+                   Clicked="NavigateSettings"
+                   Background="#201452"
+                   Aspect="Center"/>
 
-                <Label
+                <!--<Label
                     HeightRequest="25"
-                    WidthRequest="15"/>
+                    WidthRequest="15"/>-->
 
-                <Image 
+                <ImageButton 
                    Source="crown_icon_1.png"
                    SemanticProperties.Description="PremiumButton"
-                   HeightRequest="25"
-                   WidthRequest="25"/>
+                   HeightRequest="35"
+                   WidthRequest="35"
+                   Padding="7"
+                   Clicked="NavigatePremium"
+                   Background="#201452"
+                   Aspect="Center"/>
 
             </FlexLayout>
 
