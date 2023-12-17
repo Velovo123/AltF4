@@ -6,7 +6,7 @@ namespace SkillApp
     {
         public string task { get; set; }
         public List<string> subtasks { get; set; }
-        public List<Resource> resources { get; set; }
+        public List<Resources> resources { get; set; }
     }
 
     public class Roadmap
@@ -30,7 +30,7 @@ namespace SkillApp
         public List<string> milestones { get; set; }
     }
 
-    public class Resource
+    public class Resources
     {
         public string resource { get; set; }
         public string url { get; set; }

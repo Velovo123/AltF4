@@ -32,7 +32,7 @@ namespace SkillApp
             {
                 Prompt = prompt,
                 Model = Models.Gpt_3_5_Turbo,             
-                MaxTokens = 200                             //(3833min  -  4096max) ------- MODIFIED PROMPT 1785min 
+                MaxTokens = 2000                             //(3833min  -  4096max) ------- MODIFIED PROMPT 1785min 
             });
 
 
