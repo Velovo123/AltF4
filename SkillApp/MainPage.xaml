@@ -68,6 +68,7 @@
                 TextColor="#bfc5ff"
                 BackgroundColor="#452FA8"
                 SemanticProperties.Hint="Create new roadmap"
+                Clicked="NavigateRoadmapPage"
                 HorizontalOptions="Fill" />
 
             <Button
