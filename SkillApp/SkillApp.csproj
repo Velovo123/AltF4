@@ -64,6 +64,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="RoadmapPage.xaml.cs">
+	    <DependentUpon>RoadmapPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="PremiumPage.xaml.cs">
 	    <DependentUpon>PremiumPage.xaml</DependentUpon>
 	  </Compile>
@@ -73,6 +76,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="RoadmapPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PremiumPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
