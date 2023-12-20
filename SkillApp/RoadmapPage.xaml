@@ -4,43 +4,33 @@
              x:Class="SkillApp.RoadmapPage"
              BackgroundColor="#201452">
 
-    <VerticalStackLayout HorizontalOptions="Center" Spacing="20">
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="20">
 
-        <Label/>
+            <Label/>
 
-        <Entry x:Name="entry"
-               Placeholder="I would like to learn how to ..."
-               TextColor="White"/>
+            <Entry x:Name="entry"
+                   Placeholder="I would like to learn how to ..."
+                   TextColor="White"/>
 
-        <Button
-            x:Name="NewBtn"
-            CornerRadius="10"
-            HeightRequest="50"
-            WidthRequest="220"
-            FontFamily="TekoRegular"
-            FontSize="30"
-            FontAutoScalingEnabled="True"
-            TextColor="#bfc5ff"
-            BackgroundColor="#452FA8"
-            SemanticProperties.Hint="Create new roadmap"
-            HorizontalOptions="Center"
-            Text="Create roadmap" 
-            Clicked="OnAddLabelClicked" />
+            <Button
+                x:Name="NewBtn"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="220"
+                FontFamily="TekoRegular"
+                FontSize="30"
+                FontAutoScalingEnabled="True"
+                TextColor="#bfc5ff"
+                BackgroundColor="#452FA8"
+                SemanticProperties.Hint="Create new roadmap"
+                HorizontalOptions="Center"
+                Text="Create roadmap" 
+                Clicked="OnCreateRoadmapClicked" />
 
-        <Entry x:Name="numbOfSteps"
-               Placeholder="Number of steps"
-               TextChanged="OnEntryTextChangedSteps"
-               TextColor="White"/>
+            <FlexLayout Direction="Column" x:Name="labelStackLayout">
 
-        <Entry x:Name="stepContent"
-               Placeholder="Step content"
-               TextChanged="OnEntryTextChangedContent"
-               TextColor="White"/>
-
-        <FlexLayout Direction="Row" x:Name="labelStackLayout">
-
-        </FlexLayout>
-
-    </VerticalStackLayout>
-    
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

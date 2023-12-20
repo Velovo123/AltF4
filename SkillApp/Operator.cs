@@ -103,7 +103,5 @@ namespace SkillApp
             }
         }
 
-
-
     }
 }
