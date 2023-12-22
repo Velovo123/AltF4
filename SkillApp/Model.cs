@@ -1,39 +1,47 @@
 ﻿
+using Newtonsoft.Json;
+
 namespace SkillApp
 {
 
     public class Task
     {
-        public string task { get; set; }
-        public List<string> subtasks { get; set; }
-        public List<Resources> resources { get; set; }
+        [JsonProperty("task")]
+        public string TaskDescription { get; set; }
+        [JsonProperty("subtasks")]
+        public List<string> Subtasks { get; set; }
+        [JsonProperty("resources")]
+        public List<string> Resources { get; set; }
     }
 
     public class Roadmap
     {
-        public TaskGroup beginner { get; set; }
-        public TaskGroup intermediate { get; set; }
-        public TaskGroup advanced { get; set; }
+        [JsonProperty("beginner")]
+        public TaskGroup Beginner { get; set; }
+        [JsonProperty("intermediate")]
+        public TaskGroup Intermediate { get; set; }
+        [JsonProperty("advanced")]
+        public TaskGroup Advanced { get; set; }
     }
 
     public class RootObject
     {
-        public string aim { get; set; }
-        public Roadmap roadmap { get; set; }
-        public List<string> supplementary_skills { get; set; }
-        public List<string> stay_abreast_strategies { get; set; }
+        [JsonProperty("aim")]
+        public string Aim { get; set; }
+        [JsonProperty("roadmap")]
+        public Roadmap Roadmap { get; set; }
+        [JsonProperty("supplementary_skills")]
+        public List<string> Supplementary_skills { get; set; }
+        [JsonProperty("stay_abreast_strategie")]
+        public List<string> Stay_abreast_strategies { get; set; }
     }
 
     public class TaskGroup
     {
-        public List<Task> tasks { get; set; }
-        public List<string> milestones { get; set; }
-    }
-
-    public class Resources
-    {
-        public string resource { get; set; }
-        public string url { get; set; }
+        [JsonProperty("tasks")]
+        public List<Task> Tasks { get; set; }
+        [JsonProperty("milestones")]
+        public List<string> Milestones { get; set; }
     }
 
 

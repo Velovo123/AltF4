@@ -43,7 +43,7 @@ namespace SkillApp
                 {
                     RootObject obj = DeserializeRoadMap(jsonString);
                     EnsureDirectoryExists();
-                    string fileName = $"{obj.aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";   // VRODE BOBMA 
+                    string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";   // VRODE BOBMA 
                     string filePath = Path.Combine(roadmapDirectory, fileName);
                     
                     File.WriteAllText(filePath, jsonString);
@@ -103,7 +103,7 @@ namespace SkillApp
             }
         }
 
-        public static void EnsureDirectoryExists()
+        private static void EnsureDirectoryExists()
         {
             if (!Directory.Exists(roadmapDirectory))
             {
