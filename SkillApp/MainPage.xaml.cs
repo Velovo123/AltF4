@@ -18,7 +18,10 @@
         {
             await Navigation.PushAsync(new PremiumPage(), true);
         }
-
+        async void NavigateRoadmapPage(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new RoadmapPage(), true);
+        }
     }
 
 }
