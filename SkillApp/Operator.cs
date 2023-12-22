@@ -9,9 +9,8 @@ namespace SkillApp
     internal static class Operator
     {
         private const string OpenApiKey = "YOUR_OPENAI_API_KEY";
-        
-        private static readonly string roadmapDirectory = Path.Combine(
-            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"Roadmaps");
+
+        private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
         /// <summary>
         /// Generates a roadmap based on the provided prompt using the OpenAI GPT-3.5 Turbo model.
@@ -43,7 +42,8 @@ namespace SkillApp
                 if (!string.IsNullOrEmpty(jsonString))
                 {
                     RootObject obj = DeserializeRoadMap(jsonString);
-                    string fileName = $"{obj.aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";   // VRODE BOBMA 
+                    EnsureDirectoryExists();
+                    string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";   // VRODE BOBMA 
                     string filePath = Path.Combine(roadmapDirectory, fileName);
                     
                     File.WriteAllText(filePath, jsonString);
@@ -102,6 +102,18 @@ namespace SkillApp
                 throw new InvalidOperationException("Deserialization failed", ex);
             }
         }
+
+ 
+        private static void EnsureDirectoryExists()
+        {
+            if (!Directory.Exists(roadmapDirectory))
+            {
+                Directory.CreateDirectory(roadmapDirectory);
+            }
+        }
+
+
+
 
     }
 }
