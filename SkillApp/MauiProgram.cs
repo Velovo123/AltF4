@@ -12,6 +12,8 @@ namespace SkillApp
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("Teko-Regular.ttf", "TekoRegular");
+                    fonts.AddFont("Inter-Regular.ttf", "InterRegular");
+                    fonts.AddFont("Inter-SemiBold.ttf", "InterSemiBold");
                 });
 
 #if DEBUG
