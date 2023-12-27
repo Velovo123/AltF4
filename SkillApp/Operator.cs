@@ -8,7 +8,7 @@ namespace SkillApp
 {
     internal static class Operator
     {
-        private const string OpenApiKey = "YOUR_OPENAI_API_KEY";
+        private const string OpenApiKey = "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";
 
         private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
@@ -25,25 +25,29 @@ namespace SkillApp
             {
                 ApiKey = OpenApiKey,
             });
-            
 
-            var completionResult = await openAiService.Completions.CreateCompletion(new CompletionCreateRequest()
+
+            var completionResult = await openAiService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
             {
-                Prompt = prompt,
-                Model = Models.Gpt_3_5_Turbo,             
-                MaxTokens = 2000                             //(3833min  -  4096max) ------- MODIFIED PROMPT 1785min 
+                Messages = new List<ChatMessage>
+                {
+                    ChatMessage.FromSystem("You are a helpful assistant providing a roadmap."),
+                    ChatMessage.FromUser(prompt),
+                },
+                Model = Models.Gpt_3_5_Turbo,
+                MaxTokens = 2000
             });
 
 
             if (completionResult.Successful)
             {
-                var jsonString = completionResult.Choices.FirstOrDefault()?.Text; // ?? NE ZNAIU BUDE ROBUTU CHI NE
+                var jsonString = completionResult.Choices.FirstOrDefault()?.Message.Content; 
 
                 if (!string.IsNullOrEmpty(jsonString))
                 {
                     RootObject obj = DeserializeRoadMap(jsonString);
                     EnsureDirectoryExists();
-                    string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";   // VRODE BOBMA 
+                    string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";
                     string filePath = Path.Combine(roadmapDirectory, fileName);
                     
                     File.WriteAllText(filePath, jsonString);
@@ -67,27 +71,69 @@ namespace SkillApp
         /// <param name="fileName">The name of the JSON file to read.</param>
         /// <returns>RootObject representing the contents of the JSON file.</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public static RootObject ReadRoadMapFromFile(string fileName)
+        public static RootObject ReadRoadMapFromFile(string fileNamePrefix)
         {
-            string filePath = Path.Combine(roadmapDirectory, fileName);
+            EnsureDirectoryExists();
+            string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{fileNamePrefix}_*.json");
 
-            if (File.Exists(filePath))
+            if (matchingFiles.Length > 0)
             {
-                string jsonContent = File.ReadAllText(filePath);
+                // Take the first file as it is the latest based on creation time
+                string latestFilePath = matchingFiles[0];
 
-                if (!string.IsNullOrEmpty(jsonContent))
+                if (!string.IsNullOrEmpty(latestFilePath))
                 {
-                    return DeserializeRoadMap(jsonContent);
+                    string jsonContent = File.ReadAllText(latestFilePath);
+
+                    if (!string.IsNullOrEmpty(jsonContent))
+                    {
+                        return DeserializeRoadMap(jsonContent);
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("JSON file is empty.");
+                    }
                 }
                 else
                 {
-                    throw new InvalidOperationException("JSON file is empty.");
+                    throw new InvalidOperationException($"Failed to determine the latest file for prefix '{fileNamePrefix}'.");
                 }
             }
             else
             {
-                throw new InvalidOperationException($"File not found: {filePath}");
+                throw new InvalidOperationException($"No matching file found for prefix '{fileNamePrefix}'.");
             }
+
+        }
+
+        /// <summary>
+        /// Gets a list of roadmap names by extracting the part of the file name before the first underscore
+        /// from all JSON files in the "Roadmaps" directory.
+        /// </summary>
+        /// <returns>A list of roadmap names.</returns>
+        public static List<string> GetAllRoadmaps()
+        {
+            EnsureDirectoryExists();
+
+            string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
+
+            List<string> roadmapNames = new List<string>();
+
+            var sortedFiles = from file in files orderby new FileInfo(file).CreationTime descending select file;
+
+            foreach (string filePath in sortedFiles)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+
+                int indexOfUnderscore = fileName.IndexOf('_');
+                if (indexOfUnderscore != -1)
+                {
+                    string roadmapName = fileName.Substring(0, indexOfUnderscore);
+                    roadmapNames.Add(roadmapName);
+                }
+            }
+
+            return roadmapNames;
         }
 
         private static RootObject DeserializeRoadMap(string json)
@@ -111,9 +157,6 @@ namespace SkillApp
                 Directory.CreateDirectory(roadmapDirectory);
             }
         }
-
-
-
 
     }
 }
