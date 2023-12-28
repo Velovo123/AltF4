@@ -144,6 +144,11 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
         public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
 
+            if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
+            {
+                throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
+            }
+
             var openAiService = new OpenAIService(new OpenAiOptions()
             {
                 ApiKey = OpenApiKey,
