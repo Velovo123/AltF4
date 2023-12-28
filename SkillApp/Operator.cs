@@ -6,19 +6,142 @@ using OpenAI.ObjectModels;
 
 namespace SkillApp
 {
-    internal static class Operator
+    public static class Operator
     {
         private const string OpenApiKey = "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";
 
         private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
+        private static readonly string promptTemplate1 = @"Create a detailed roadmap to enhance expertise and knowledge in [{0}], specifically focusing on [{1}] aiming to [{2}]. The roadmap is structured into three levels - Beginner, Intermediate, and Advanced - each containing tasks, subtasks, milestones, and recommended resources.
+
+The aim of this roadmap is to [{2}]. To achieve this, the roadmap outlines the following tasks:" + "\n\n";
+        private static readonly string promptTemplate2 = @"-BEGINNER LEVEL-
+
+Task: [task1]
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3]
+Resources:
+resource1
+resource2
+Task: [task2] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Task: [task3] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Milestones:
+
+[milestone1]
+[milestone2]
+[milestone3]
+-INTERMEDIATE LEVEL-
+
+Task: [task1] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Task: [task2] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Task: [task3] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Milestones:
+
+[milestone1]
+[milestone2]
+[milestone3]
+-ADVANCED LEVEL-
+
+Task: [task1] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Task: [task2] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Task: [task3] 
+Subtasks:
+
+[subtask1]
+[subtask2]
+[subtask3] 
+Resources:
+resource1
+resource2
+Milestones:
+
+[milestone1]
+[milestone2]
+[milestone3]
+In addition to the roadmap, there are supplementary skills that can complement the learning journey. These skills include:
+
+[supplementary_skill1]
+[supplementary_skill2]
+[supplementary_skill3]
+To stay abreast of the latest advancements in the [sphere] field, the roadmap suggests the following strategies:
+
+[stay_abreast_strategy1]
+[stay_abreast_strategy2]
+[stay_abreast_strategy3]
+Please note that the provided roadmap is expressed in JSON format. Adjust the URLs of the resources according to your needs and preferences.
+Notice that there must be 3 tasks for every level, 3 subtasks for every task,you can give any amount of URL's for recources not only 2(how many can you find in internet)(PROVIDE REAL URL'S THAT EXIST).
+
+
+Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""beginner"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""intermediate"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""advanced"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] } }, ""supplementary_skills"": [], ""stay_abreast_strategies"": [] }";
+
         /// <summary>
-        /// Generates a roadmap based on the provided prompt using the OpenAI GPT-3.5 Turbo model.
+        /// Generates a roadmap based on the provided parameters using the OpenAI GPT-3.5 Turbo model.
         /// </summary>
-        /// <param name="prompt">The prompt to generate the roadmap.</param>
+        /// <param name="sphere">The sphere value.</param>
+        /// <param name="level">The level value.</param>
+        /// <param name="aim">The aim value.</param>
         /// <returns>The deserialized roadmap object.</returns>
         /// <exception cref="InvalidOperationException">Thrown when an error occurs during the generation process.</exception>
-        public static async Task<RootObject> GenerateRoadMap(string prompt)
+        public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
 
             var openAiService = new OpenAIService(new OpenAiOptions()
@@ -26,6 +149,7 @@ namespace SkillApp
                 ApiKey = OpenApiKey,
             });
 
+            var prompt = string.Format(promptTemplate1, sphere, level, aim) + promptTemplate2;
 
             var completionResult = await openAiService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
             {
