@@ -1,36 +1,191 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="SkillApp.RoadmapPage"
-             BackgroundColor="#201452">
+             BackgroundColor="#F3F2FF">
 
     <ScrollView>
-        <VerticalStackLayout HorizontalOptions="Center" Spacing="20">
+        <StackLayout HorizontalOptions="Center" Spacing="5">
+            
+            <Grid BackgroundColor="#F3F2FF" Padding="10">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="38" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="38" />
+                </Grid.ColumnDefinitions>
+                
+                <Image Grid.Column="0" 
+                       x:Name="ReturnImage" 
+                       HeightRequest="32" 
+                       WidthRequest="32"  
+                       Source="return.png" 
+                       Aspect="Fill"/>
 
-            <Label/>
+                <Label  Text="Learning" 
+                        FontSize="16"
+                        FontFamily="InterBold"
+                        TextColor="#1D3A70" 
+                        Grid.Column="1" 
+                        HeightRequest="25" 
+                        WidthRequest="180" 
+                        HorizontalTextAlignment="Center"/>
 
-            <Entry x:Name="entry"
-                   Placeholder="I would like to learn how to ..."
-                   TextColor="White"/>
+                <Image Grid.Column="2" 
+                       x:Name="MenuImage" 
+                       HeightRequest="32" 
+                       WidthRequest="32"  
+                       Source="Menu.png" 
+                       Aspect="Fill"/>
+                
+            </Grid>
+
+            <mct:Expander x:Name="SubtaskExpander1">
+                <mct:Expander.Header>
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label  Text="Task 1" 
+                                FontFamily="InterSemiBold"
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21"
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="HeaderImage1" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference SubtaskExpander1}, Path=IsExpanded}"
+                                         Value="True">
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
+                </mct:Expander.Header>
+                <mct:Expander.Content>
+                    <StackLayout Padding="10">
+                        <Label Text="- subtask 1" />
+                        <Label Text="- subtask 2" />
+                        <Label Text="- subtask 3" />
+                    </StackLayout>
+                </mct:Expander.Content>
+            </mct:Expander>
+
+            <mct:Expander x:Name="SubtaskExpander2">
+                <mct:Expander.Header>
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label  Text="Task 2" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="HeaderImage2" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference SubtaskExpander2}, Path=IsExpanded}"
+                                         Value="True">
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
+                </mct:Expander.Header>
+                <mct:Expander.Content>
+                    <StackLayout Padding="10">
+                        <Label Text="- subtask 1" />
+                        <Label Text="- subtask 2" />
+                        <Label Text="- subtask 3" />
+                    </StackLayout>
+                </mct:Expander.Content>
+            </mct:Expander>
+
+            <mct:Expander x:Name="SubtaskExpander3">
+                <mct:Expander.Header>
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label  Text="Task 3" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="HeaderImage3" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference SubtaskExpander1}, Path=IsExpanded}"
+                                         Value="True">
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+                    </Grid>
+                </mct:Expander.Header>
+                <mct:Expander.Content>
+                    <StackLayout Padding="10">
+                        <Label Text="- subtask 1" />
+                        <Label Text="- subtask 2" />
+                        <Label Text="- subtask 3" />
+                    </StackLayout>
+                </mct:Expander.Content>
+            </mct:Expander>
 
             <Button
-                x:Name="NewBtn"
+                x:Name="CompleteBtn"
                 CornerRadius="10"
-                HeightRequest="50"
-                WidthRequest="220"
-                FontFamily="TekoRegular"
-                FontSize="30"
+                HeightRequest="25"
+                WidthRequest="240"
+                Text="Complete"
+                FontFamily="InterSemiBold"
+                FontSize="14"
                 FontAutoScalingEnabled="True"
-                TextColor="#bfc5ff"
-                BackgroundColor="#452FA8"
-                SemanticProperties.Hint="Create new roadmap"
-                HorizontalOptions="Center"
-                Text="Create roadmap" 
-                Clicked="OnCreateRoadmapClicked" />
+                TextColor="#F3F2FF"
+                BackgroundColor="#7355FF"
+                VerticalOptions="EndAndExpand">
+                <Button.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="0,5"
+                            Radius="3"
+                            Opacity="0.3" />
+                </Button.Shadow>
+            </Button>
 
-            <FlexLayout Direction="Column" x:Name="labelStackLayout">
+            <Label HeightRequest="5"/>
 
-            </FlexLayout>
-        </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
