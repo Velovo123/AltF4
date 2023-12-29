@@ -58,7 +58,9 @@
                             Opacity="0.3" />
                 </Button.Shadow>
             </Button>
+            
         </VerticalStackLayout>
+        
     </ScrollView>
 
 </ContentPage>
