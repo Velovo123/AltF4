@@ -4,10 +4,13 @@ using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
 using OpenAI.ObjectModels;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace SkillApp
 {
     public static class Operator
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+
         private const string OpenApiKey = "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";
 
         private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
@@ -140,58 +143,67 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
         /// <param name="level">The level value.</param>
         /// <param name="aim">The aim value.</param>
         /// <returns>The deserialized roadmap object.</returns>
-        /// <exception cref="InvalidOperationException">Thrown when an error occurs during the generation process.</exception>
+        /// <exception cref="Exception">Thrown when an error occurs during the generation process.</exception>
         public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
-
-            if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
+            try
             {
-                throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
-            }
+                log.Info("Starting generate roadmap");
+                if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
+                {
+                    throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
+                }
 
-            var openAiService = new OpenAIService(new OpenAiOptions()
-            {
-                ApiKey = OpenApiKey,
-            });
+                var openAiService = new OpenAIService(new OpenAiOptions()
+                {
+                    ApiKey = OpenApiKey,
+                });
 
-            var prompt = string.Format(promptTemplate1, sphere, level, aim) + promptTemplate2;
+                var prompt = string.Format(promptTemplate1, sphere, level, aim) + promptTemplate2;
 
-            var completionResult = await openAiService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
-            {
-                Messages = new List<ChatMessage>
+                var completionResult = await openAiService.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
+                {
+                    Messages = new List<ChatMessage>
                 {
                     ChatMessage.FromSystem("You are a helpful assistant providing a roadmap."),
                     ChatMessage.FromUser(prompt),
                 },
-                Model = Models.Gpt_3_5_Turbo,
-                MaxTokens = 2000
-            });
+                    Model = Models.Gpt_3_5_Turbo,
+                    MaxTokens = 2000
+                });
 
 
-            if (completionResult.Successful)
-            {
-                var jsonString = completionResult.Choices.FirstOrDefault()?.Message.Content; 
-
-                if (!string.IsNullOrEmpty(jsonString))
+                if (completionResult.Successful)
                 {
-                    RootObject obj = DeserializeRoadMap(jsonString);
-                    EnsureDirectoryExists();
-                    string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";
-                    string filePath = Path.Combine(roadmapDirectory, fileName);
-                    
-                    File.WriteAllText(filePath, jsonString);
-                    return obj;
+                    var jsonString = completionResult.Choices.FirstOrDefault()?.Message.Content;
+
+                    if (!string.IsNullOrEmpty(jsonString))
+                    {
+                        RootObject obj = DeserializeRoadMap(jsonString);
+                        EnsureDirectoryExists();
+                        string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";
+                        string filePath = Path.Combine(roadmapDirectory, fileName);
+
+                        File.WriteAllText(filePath, jsonString);
+                        log.Info("Roadmap was succesful generated");
+                        return obj;
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException();
+                    }
+
                 }
                 else
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException($"Error: {completionResult.Error?.Message ?? "Unknown error"}");
                 }
-
             }
-            else
+            catch(Exception ex)
             {
-                throw new InvalidOperationException($"Error: {completionResult.Error?.Message ?? "Unknown error"}");
-            }   
+                log.Error($"An unexpected error occurred: {ex.Message}", ex);
+                throw;
+            }
         }
 
         /// <summary>
@@ -202,67 +214,86 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
         /// <exception cref="InvalidOperationException"></exception>
         public static RootObject ReadRoadMapFromFile(string fileNamePrefix)
         {
-            EnsureDirectoryExists();
-            string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{fileNamePrefix}_*.json");
-
-            if (matchingFiles.Length > 0)
+            try
             {
-                // Take the first file as it is the latest based on creation time
-                string latestFilePath = matchingFiles[0];
+                log.Info($"Reading roadmap from file for prefix '{fileNamePrefix}'");
+                EnsureDirectoryExists();
+                string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{fileNamePrefix}_*.json");
 
-                if (!string.IsNullOrEmpty(latestFilePath))
+                if (matchingFiles.Length > 0)
                 {
-                    string jsonContent = File.ReadAllText(latestFilePath);
+                    // Take the first file as it is the latest based on creation time
+                    string latestFilePath = matchingFiles[0];
 
-                    if (!string.IsNullOrEmpty(jsonContent))
+                    if (!string.IsNullOrEmpty(latestFilePath))
                     {
-                        return DeserializeRoadMap(jsonContent);
+                        string jsonContent = File.ReadAllText(latestFilePath);
+
+                        if (!string.IsNullOrEmpty(jsonContent))
+                        {
+                            log.Info($"Roadmap successfully read from file with prefix: {latestFilePath}");
+                            return DeserializeRoadMap(jsonContent);
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("JSON file is empty.");
+                        }
                     }
                     else
                     {
-                        throw new InvalidOperationException("JSON file is empty.");
+                        throw new InvalidOperationException($"Failed to determine the latest file for prefix '{fileNamePrefix}'.");
                     }
                 }
                 else
                 {
-                    throw new InvalidOperationException($"Failed to determine the latest file for prefix '{fileNamePrefix}'.");
+                    throw new InvalidOperationException($"No matching file found for prefix '{fileNamePrefix}'.");
                 }
             }
-            else
+            catch(InvalidOperationException ex)
             {
-                throw new InvalidOperationException($"No matching file found for prefix '{fileNamePrefix}'.");
+                log.Error($"An unexpected error occurred: {ex.Message}", ex);
+                throw;
             }
 
         }
 
         /// <summary>
         /// Gets a list of roadmap names by extracting the part of the file name before the first underscore
-        /// from all JSON files in the "Roadmaps" directory.
+        /// from all JSON files in the "Roadmaps" directory.Sort it by creationTime by descending
         /// </summary>
         /// <returns>A list of roadmap names.</returns>
         public static List<string> GetAllRoadmaps()
         {
-            EnsureDirectoryExists();
-
-            string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
-
-            List<string> roadmapNames = new List<string>();
-
-            var sortedFiles = from file in files orderby new FileInfo(file).CreationTime descending select file;
-
-            foreach (string filePath in sortedFiles)
+            try
             {
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                log.Debug("Getting all roadmaps");
+                EnsureDirectoryExists();
 
-                int indexOfUnderscore = fileName.IndexOf('_');
-                if (indexOfUnderscore != -1)
+                string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
+
+                List<string> roadmapNames = new List<string>();
+
+                var sortedFiles = from file in files orderby new FileInfo(file).CreationTime descending select file;
+
+                foreach (string filePath in sortedFiles)
                 {
-                    string roadmapName = fileName.Substring(0, indexOfUnderscore);
-                    roadmapNames.Add(roadmapName);
-                }
-            }
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
 
-            return roadmapNames;
+                    int indexOfUnderscore = fileName.IndexOf('_');
+                    if (indexOfUnderscore != -1)
+                    {
+                        string roadmapName = fileName.Substring(0, indexOfUnderscore);
+                        roadmapNames.Add(roadmapName);
+                    }
+                }
+                log.Debug($"Found {roadmapNames.Count} roadmaps");
+                return roadmapNames;
+            }
+            catch (Exception ex)
+            {
+                log.Error($"An unexpected error occurred: {ex.Message}", ex);
+                throw;  
+            }
         }
 
         private static RootObject DeserializeRoadMap(string json)
