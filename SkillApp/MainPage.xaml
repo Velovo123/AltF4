@@ -49,6 +49,7 @@
                 TextColor="#7355FF"
                 BackgroundColor="#F3F2FF"
                 BorderColor="#7355FF"
+                Clicked="NavigateRequestPage"
                 BorderWidth="1"
                 HorizontalOptions="Fill">
                 <Button.Shadow>
