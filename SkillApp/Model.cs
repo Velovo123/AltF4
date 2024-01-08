@@ -32,7 +32,7 @@ namespace SkillApp
         public Roadmap Roadmap { get; set; }
         [JsonProperty("supplementary_skills")]
         public List<string> Supplementary_skills { get; set; }
-        [JsonProperty("stay_abreast_strategie")]
+        [JsonProperty("stay_abreast_strategies")]
         public List<string> Stay_abreast_strategies { get; set; }
     }
 
