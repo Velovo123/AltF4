@@ -58,6 +58,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Betalgo.OpenAI" Version="7.4.3" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
 		<PackageReference Include="log4net" Version="2.0.15" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -66,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Requestpage.xaml.cs">
+	    <DependentUpon>RequestPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="RoadmapPage.xaml.cs">
 	    <DependentUpon>RoadmapPage.xaml</DependentUpon>
 	  </Compile>
@@ -78,6 +82,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="RequestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="RoadmapPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
