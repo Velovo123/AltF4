@@ -6,4 +6,8 @@ public partial class RoadmapPage : ContentPage
     {
         InitializeComponent();
     }
+    async void NatigateBack(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }

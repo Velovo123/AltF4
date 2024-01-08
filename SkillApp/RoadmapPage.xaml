@@ -16,13 +16,18 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="38" />
                 </Grid.ColumnDefinitions>
-                
+
                 <Image Grid.Column="0" 
                        x:Name="ReturnImage" 
                        HeightRequest="32" 
                        WidthRequest="32"  
                        Source="return.png" 
-                       Aspect="Fill"/>
+                       Aspect="Fill">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="NatigateBack"
+                                              NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
 
                 <Label  Text="Learning" 
                         FontSize="16"
