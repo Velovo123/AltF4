@@ -6,9 +6,9 @@
         {
             InitializeComponent();
         }
-        async void NavigateRequestPage(System.Object sender, System.EventArgs e)
+        async void NavigateBroadRequestPage(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new RequestPage(), true);
+            await Navigation.PushAsync(new BroadRequestPage(), true);
         }
     }
 

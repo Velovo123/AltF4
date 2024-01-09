@@ -54,13 +54,14 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Label  Text="Task 1" 
-                                FontFamily="InterSemiBold"
-                                FontSize="11" 
-                                TextColor="#1D3A70" 
-                                Grid.Column="0" 
-                                HeightRequest="21"
-                                WidthRequest="190" />
+                        <Label x:Name="Level1"
+                               Text="Task 1" 
+                               FontFamily="InterSemiBold"
+                               FontSize="11" 
+                               TextColor="#1D3A70" 
+                               Grid.Column="0" 
+                               HeightRequest="21"
+                               WidthRequest="190" />
                         <Image Grid.Column="1" 
                                x:Name="HeaderImage1" 
                                HeightRequest="22" 
@@ -80,9 +81,9 @@
                 </mct:Expander.Header>
                 <mct:Expander.Content>
                     <StackLayout Padding="10">
-                        <Label Text="- subtask 1" />
-                        <Label Text="- subtask 2" />
-                        <Label Text="- subtask 3" />
+                        <Label Text="- subtask 1" x:Name="BegginerSubtask1"/>
+                        <Label Text="- subtask 2" x:Name="BegginerSubtask2"/>
+                        <Label Text="- subtask 3" x:Name="BegginerSubtask3"/>
                     </StackLayout>
                 </mct:Expander.Content>
             </mct:Expander>

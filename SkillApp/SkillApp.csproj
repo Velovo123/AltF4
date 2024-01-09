@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="BroadRequestPage.xaml.cs">
+	    <DependentUpon>BroadRequestPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Requestpage.xaml.cs">
 	    <DependentUpon>RequestPage.xaml</DependentUpon>
 	  </Compile>
@@ -82,6 +85,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="BroadRequestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="RequestPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

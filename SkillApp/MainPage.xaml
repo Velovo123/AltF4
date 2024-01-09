@@ -10,7 +10,7 @@
 
             <Image
                 Source="main_page_rectangle.png"
-                HeightRequest="365"
+                HeightRequest="385"
                 WidthRequest="275"
                 Aspect="Fill"/>
 
@@ -20,15 +20,15 @@
             <Button
                 x:Name="NewBtn"
                 CornerRadius="10"
-                HeightRequest="25"
+                HeightRequest="20"
                 WidthRequest="240"
                 Text="New"
                 FontFamily="InterRegular"
-                FontSize="14"
+                FontSize="13"
                 FontAutoScalingEnabled="True"
                 TextColor="#F3F2FF"
                 BackgroundColor="#7355FF"
-                Clicked="NavigateRequestPage"
+                Clicked="NavigateBroadRequestPage"
                 HorizontalOptions="Fill">
                 <Button.Shadow>
                     <Shadow Brush="Black"
@@ -41,11 +41,11 @@
             <Button
                 x:Name="ContBtn"
                 CornerRadius="10"
-                HeightRequest="25"
+                HeightRequest="20"
                 WidthRequest="240"
                 Text="Continue" 
-                FontFamily="InterSemiBold"
-                FontSize="14"
+                FontFamily="InterRegular"
+                FontSize="13"
                 FontAutoScalingEnabled="True"
                 TextColor="#7355FF"
                 BackgroundColor="#F3F2FF"
