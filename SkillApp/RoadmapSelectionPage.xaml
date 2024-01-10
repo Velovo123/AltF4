@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.RoadmapSelectionPage">
+
+    <StackLayout HorizontalOptions="Center" Spacing="5">
+            
+            <Grid>
+               
+                <Image Aspect="Fill"
+                       Source="roadmap_selection_background2.png"
+                       WidthRequest="265"
+                       HeightRequest="594"/>
+                
+                <VerticalStackLayout>
+                    
+                    <Grid BackgroundColor="#00F9FAFB" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="38" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="38" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Image x:Name="ReturnImage" 
+                               Grid.Column="0"
+                               HeightRequest="32" 
+                               WidthRequest="32"  
+                               Source="return.png" 
+                               Aspect="Fill">
+
+                            <Image.GestureRecognizers>
+
+                                <TapGestureRecognizer Tapped="NatigateBack"
+                                                      NumberOfTapsRequired="1" />
+                                </Image.GestureRecognizers>
+
+                        </Image>
+
+                        <Label x:Name="TopTextLabel"
+                               Grid.Column="1" 
+                               Text="List" 
+                               FontSize="16"
+                               FontFamily="InterBold"
+                               TextColor="#1D3A70" 
+                               HeightRequest="25" 
+                               WidthRequest="180" 
+                               HorizontalTextAlignment="Center"/>
+
+                        <Image x:Name="MenuImage" 
+                               Grid.Column="2" 
+                               HeightRequest="32" 
+                               WidthRequest="32"  
+                               Source="menu.png" 
+                               Aspect="Fill"/>
+
+                    </Grid>
+                    
+                    <Label HeightRequest="120"/>
+                
+                    <Grid HorizontalOptions="Center" ColumnSpacing="16" RowSpacing="16">
+                        
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="110" />
+                            <ColumnDefinition Width="110" />
+
+                        </Grid.ColumnDefinitions>
+                        
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="110" />
+                            <RowDefinition Height="110" />
+
+                        </Grid.RowDefinitions>
+
+                        <Border HeightRequest="110" 
+                                WidthRequest="110"
+                                StrokeShape="RoundRectangle 10,10,10,10" 
+                                Stroke="#FFFFFF"
+                                Background="#FFFFFF"
+                                Grid.Row="0"
+                                Grid.Column="0">
+
+
+                            <Border.Shadow>
+                                
+                                <Shadow Brush="Black"
+                                        Offset="0,5"
+                                        Radius="3"
+                                        Opacity="0.1" />
+                                
+                            </Border.Shadow>
+
+                            <VerticalStackLayout>
+
+                                    <Label HeightRequest="10"/>
+
+                                    <Image Source="small_roadmap.png"
+                                           HeightRequest="60"
+                                           WidthRequest="60"
+                                           Aspect="Fill"/>
+
+                                    <Label HeightRequest="10"/>
+
+                                    <Label Text="new"
+                                           TextColor="#7356FF"
+                                           FontSize="11"
+                                           FontFamily="PoppinsSemiBold"
+                                           HorizontalOptions="Center"/>
+
+                                </VerticalStackLayout>
+
+                        </Border>
+
+                        <Border HeightRequest="110" 
+                                WidthRequest="110"
+                                StrokeShape="RoundRectangle 10,10,10,10" 
+                                Stroke="#FFFFFF"
+                                Background="#FFFFFF"
+                                Grid.Row="0"
+                                Grid.Column="1">
+
+
+                            <Border.Shadow>
+                                
+                                <Shadow Brush="Black"
+                                            Offset="0,5"
+                                            Radius="3"
+                                            Opacity="0.1" />
+                                
+                            </Border.Shadow>
+
+                            <VerticalStackLayout>
+
+                                <Label HeightRequest="10"/>
+
+                                <Image Source="small_roadmap.png"
+                                               HeightRequest="60"
+                                               WidthRequest="60"
+                                               Aspect="Fill"/>
+
+                                <Label HeightRequest="10"/>
+
+                                <Label Text="new"
+                                               TextColor="#7356FF"
+                                               FontSize="11"
+                                               FontFamily="PoppinsSemiBold"
+                                               HorizontalOptions="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                        <Border HeightRequest="110" 
+                                WidthRequest="110"
+                                StrokeShape="RoundRectangle 10,10,10,10" 
+                                Stroke="#FFFFFF"
+                                Background="#FFFFFF"
+                                Grid.Row="1"
+                                Grid.Column="0">
+
+
+                            <Border.Shadow>
+
+                                <Shadow Brush="Black"
+                                        Offset="0,5"
+                                        Radius="3"
+                                        Opacity="0.1" />
+
+                            </Border.Shadow>
+
+                            <VerticalStackLayout>
+
+                                <Label HeightRequest="10"/>
+
+                                <Image Source="small_roadmap.png"
+                                       HeightRequest="60"
+                                       WidthRequest="60"
+                                       Aspect="Fill"/>
+
+                                <Label HeightRequest="10"/>
+
+                                <Label Text="new"
+                                       TextColor="#7356FF"
+                                       FontSize="11"
+                                       FontFamily="PoppinsSemiBold"
+                                       HorizontalOptions="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                        <Border HeightRequest="110" 
+                                WidthRequest="110"
+                                StrokeShape="RoundRectangle 10,10,10,10" 
+                                Stroke="#FFFFFF"
+                                Background="#FFFFFF"
+                                Grid.Row="1"
+                                Grid.Column="1">
+
+
+                            <Border.Shadow>
+
+                                <Shadow Brush="Black"
+                                        Offset="0,5"
+                                        Radius="3"
+                                        Opacity="0.1" />
+
+                            </Border.Shadow>
+
+                            <VerticalStackLayout>
+
+                                <Label HeightRequest="10"/>
+
+                                <Image Source="small_roadmap.png"
+                                       HeightRequest="60"
+                                       WidthRequest="60"
+                                       Aspect="Fill"/>
+
+                                <Label HeightRequest="10"/>
+
+                                <Label Text="new"
+                                       TextColor="#7356FF"
+                                       FontSize="11"
+                                       FontFamily="PoppinsSemiBold"
+                                       HorizontalOptions="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </Grid>
+                    
+                </VerticalStackLayout>
+                
+            </Grid>
+
+    </StackLayout>
+
+</ContentPage>

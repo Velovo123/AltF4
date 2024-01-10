@@ -23,10 +23,14 @@
                        WidthRequest="32"  
                        Source="return.png" 
                        Aspect="Fill">
+                    
                     <Image.GestureRecognizers>
+                        
                         <TapGestureRecognizer Tapped="NatigateBack"
                                               NumberOfTapsRequired="1" />
+                        
                     </Image.GestureRecognizers>
+                    
                 </Image>
 
                 <Label  Text="Learning" 
@@ -47,125 +51,923 @@
                 
             </Grid>
 
-            <mct:Expander x:Name="SubtaskExpander1">
+            <Label Text="Beginer level"
+                   TextColor="#7356FF"
+                   FontSize="11"
+                   FontFamily="PoppinsSemiBold"
+                   HorizontalOptions="Center"/>
+
+            <mct:Expander x:Name="BeginerTaskExpander0">
+                
                 <mct:Expander.Header>
+                    
                     <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        
                         <Grid.ColumnDefinitions>
+                            
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
+                            
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="Level1"
-                               Text="Task 1" 
+
+                        <Label x:Name="BeginerTask0"
+                               Text="Beginer task 0" 
                                FontFamily="InterSemiBold"
                                FontSize="11" 
                                TextColor="#1D3A70" 
                                Grid.Column="0" 
                                HeightRequest="21"
                                WidthRequest="190" />
+                        
                         <Image Grid.Column="1" 
-                               x:Name="HeaderImage1" 
+                               x:Name="BeginerTask0HeaderImage" 
                                HeightRequest="22" 
                                WidthRequest="22"  
                                Source="expand.png" 
                                Aspect="Fill">
+                            
                             <Image.Triggers>
+                                
                                 <DataTrigger TargetType="Image"
-                                         Binding="{Binding Source={x:Reference SubtaskExpander1}, Path=IsExpanded}"
-                                         Value="True">
+                                             Binding="{Binding Source={x:Reference BeginerTaskExpander0}, Path=IsExpanded}"
+                                             Value="True">
+                                    
                                     <Setter Property="Rotation"
-                                        Value="180" />
+                                            Value="180" />
+                                    
                                 </DataTrigger>
+                                
                             </Image.Triggers>
+                            
                         </Image>
+                        
                     </Grid>
+                    
                 </mct:Expander.Header>
+                
                 <mct:Expander.Content>
+                    
                     <StackLayout Padding="10">
-                        <Label Text="- subtask 1" x:Name="BegginerSubtask1"/>
-                        <Label Text="- subtask 2" x:Name="BegginerSubtask2"/>
-                        <Label Text="- subtask 3" x:Name="BegginerSubtask3"/>
+                        
+                        <Label Text="- beginer subtask 0_0" x:Name="BegginerSubtask0_0"/>
+                        <Label Text="- beginer subtask 0_1" x:Name="BegginerSubtask0_1"/>
+                        <Label Text="- beginer subtask 0_2" x:Name="BegginerSubtask0_2"/>
+                        <Label Text="- beginer resource 0_0" x:Name="BegginerResource0_0"/>
+                        <Label Text="- beginer resource 0_1" x:Name="BegginerResource0_1"/>
+                        <Label Text="- beginer resource 0_2" x:Name="BegginerResource0_2"/>
+
                     </StackLayout>
+                    
                 </mct:Expander.Content>
+                
             </mct:Expander>
 
-            <mct:Expander x:Name="SubtaskExpander2">
+            <mct:Expander x:Name="BeginerTaskExpander1">
+                
                 <mct:Expander.Header>
+                    
                     <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        
                         <Grid.ColumnDefinitions>
+                            
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
+                            
                         </Grid.ColumnDefinitions>
-                        <Label  Text="Task 2" 
+
+                        <Label  x:Name="BeginerTask1"  
+                                Text="Beginer task 1" 
                                 FontFamily="InterSemiBold" 
                                 FontSize="11" 
                                 TextColor="#1D3A70" 
                                 Grid.Column="0" 
                                 HeightRequest="21" 
                                 WidthRequest="190" />
+                        
                         <Image Grid.Column="1" 
-                               x:Name="HeaderImage2" 
+                               x:Name="BeginerTask1HeaderImage" 
                                HeightRequest="22" 
                                WidthRequest="22"  
                                Source="expand.png" 
                                Aspect="Fill">
+                            
                             <Image.Triggers>
+                                
                                 <DataTrigger TargetType="Image"
-                                         Binding="{Binding Source={x:Reference SubtaskExpander2}, Path=IsExpanded}"
-                                         Value="True">
+                                             Binding="{Binding Source={x:Reference BeginerTaskExpander1}, Path=IsExpanded}"
+                                             Value="True">
+                                    
                                     <Setter Property="Rotation"
                                         Value="180" />
+                                    
                                 </DataTrigger>
+                                
                             </Image.Triggers>
+                            
                         </Image>
+                        
                     </Grid>
+                    
                 </mct:Expander.Header>
+                
                 <mct:Expander.Content>
+                    
                     <StackLayout Padding="10">
-                        <Label Text="- subtask 1" />
-                        <Label Text="- subtask 2" />
-                        <Label Text="- subtask 3" />
+
+                        <Label Text="- beginer subtask 1_0" x:Name="BegginerSubtask1_0"/>
+                        <Label Text="- beginer subtask 1_1" x:Name="BegginerSubtask1_1"/>
+                        <Label Text="- beginer subtask 1_2" x:Name="BegginerSubtask1_2"/>
+                        <Label Text="- beginer resource 1_0" x:Name="BegginerResource1_0"/>
+                        <Label Text="- beginer resource 1_1" x:Name="BegginerResource1_1"/>
+                        <Label Text="- beginer resource 1_2" x:Name="BegginerResource1_2"/>
+
                     </StackLayout>
+                    
                 </mct:Expander.Content>
+                
             </mct:Expander>
 
-            <mct:Expander x:Name="SubtaskExpander3">
+            <mct:Expander x:Name="BeginerTaskExpander2">
+                
                 <mct:Expander.Header>
+                    
                     <Grid BackgroundColor="#F3F2FF" Padding="10">
+                        
                         <Grid.ColumnDefinitions>
+                            
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
+                            
                         </Grid.ColumnDefinitions>
-                        <Label  Text="Task 3" 
+
+                        <Label  x:Name="BeginerTask2"
+                                Text="Beginer task 2" 
                                 FontFamily="InterSemiBold" 
                                 FontSize="11" 
                                 TextColor="#1D3A70" 
                                 Grid.Column="0" 
                                 HeightRequest="21" 
                                 WidthRequest="190" />
+                        
                         <Image Grid.Column="1" 
-                               x:Name="HeaderImage3" 
+                               x:Name="BeginerTask2HeaderImage" 
                                HeightRequest="22"
                                WidthRequest="22"  
                                Source="expand.png" 
                                Aspect="Fill">
+                            
                             <Image.Triggers>
+                                
                                 <DataTrigger TargetType="Image"
-                                         Binding="{Binding Source={x:Reference SubtaskExpander1}, Path=IsExpanded}"
+                                         Binding="{Binding Source={x:Reference BeginerTaskExpander2}, Path=IsExpanded}"
                                          Value="True">
+                                    
                                     <Setter Property="Rotation"
                                         Value="180" />
+                                    
                                 </DataTrigger>
+                                
                             </Image.Triggers>
+                            
                         </Image>
+                        
                     </Grid>
+                    
                 </mct:Expander.Header>
+                
                 <mct:Expander.Content>
+                    
                     <StackLayout Padding="10">
-                        <Label Text="- subtask 1" />
-                        <Label Text="- subtask 2" />
-                        <Label Text="- subtask 3" />
+
+                        <Label Text="- beginer subtask 2_0" x:Name="BegginerSubtask2_0"/>
+                        <Label Text="- beginer subtask 2_1" x:Name="BegginerSubtask2_1"/>
+                        <Label Text="- beginer subtask 2_2" x:Name="BegginerSubtask2_2"/>
+                        <Label Text="- beginer resource 2_0" x:Name="BegginerResource2_0"/>
+                        <Label Text="- beginer resource 2_1" x:Name="BegginerResource2_1"/>
+                        <Label Text="- beginer resource 2_2" x:Name="BegginerResource2_2"/>
+
                     </StackLayout>
+                    
                 </mct:Expander.Content>
+                
+            </mct:Expander>
+
+            <mct:Expander x:Name="BeginerMilestonesExpander">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="BeginerMilestones"
+                                Text="Beginer milestones" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="BeginerMilestonesHeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference BeginerMilestonesExpander}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- beginer milestone 0" x:Name="BegginerMilestone0"/>
+                        <Label Text="- beginer milestone 1" x:Name="BegginerMilestone1"/>
+                        <Label Text="- beginer milestone 2" x:Name="BegginerMilestone2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <Label Text="Intermediate level"
+                   TextColor="#7356FF"
+                   FontSize="11"
+                   FontFamily="PoppinsSemiBold"
+                   HorizontalOptions="Center"/>
+
+            <mct:Expander x:Name="IntermediateTaskExpander0">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="IntermediateTask0"
+                               Text="Intermediate task 0" 
+                               FontFamily="InterSemiBold"
+                               FontSize="11" 
+                               TextColor="#1D3A70" 
+                               Grid.Column="0" 
+                               HeightRequest="21"
+                               WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="IntermediateTaskExpander0HeaderImage" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={x:Reference IntermediateTaskExpander0}, Path=IsExpanded}"
+                                             Value="True">
+
+                                    <Setter Property="Rotation"
+                                            Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- intermediate subtask 0_0" x:Name="IntermediateSubtask0_0"/>
+                        <Label Text="- intermediate subtask 0_1" x:Name="IntermediateSubtask0_1"/>
+                        <Label Text="- intermediate subtask 0_2" x:Name="IntermediateSubtask0_2"/>
+                        <Label Text="- intermediate resource 0_0" x:Name="IntermediateResource0_0"/>
+                        <Label Text="- intermediate resource 0_1" x:Name="IntermediateResource0_1"/>
+                        <Label Text="- intermediate resource 0_2" x:Name="IntermediateResource0_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="IntermediateTaskExpander1">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="IntermediateTask1"  
+                                Text="Intermediate task 1" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="IntermediateTaskExpander1HeaderImage" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={x:Reference IntermediateTaskExpander1}, Path=IsExpanded}"
+                                             Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- intermediate subtask 1_0" x:Name="IntermediateSubtask1_0"/>
+                        <Label Text="- intermediate subtask 1_1" x:Name="IntermediateSubtask1_1"/>
+                        <Label Text="- intermediate subtask 1_2" x:Name="IntermediateSubtask1_2"/>
+                        <Label Text="- intermediate resource 1_0" x:Name="IntermediateResource1_0"/>
+                        <Label Text="- intermediate resource 1_1" x:Name="IntermediateResource1_1"/>
+                        <Label Text="- intermediate resource 1_2" x:Name="IntermediateResource1_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="IntermediateTaskExpander2">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="IntermediateTask2"
+                                Text="Intermediate task 2" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="IntermediateTaskExpander2HeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference IntermediateTaskExpander2}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- intermediate subtask 2_0" x:Name="IntermediateSubtask2_0"/>
+                        <Label Text="- intermediate subtask 2_1" x:Name="IntermediateSubtask2_1"/>
+                        <Label Text="- intermediate subtask 2_2" x:Name="IntermediateSubtask2_2"/>
+                        <Label Text="- intermediate resource 2_0" x:Name="IntermediateResource2_0"/>
+                        <Label Text="- intermediate resource 2_1" x:Name="IntermediateResource2_1"/>
+                        <Label Text="- intermediate resource 2_2" x:Name="IntermediateResource2_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="IntermediateMilestonesExpander">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="IntermediateMilestones"
+                                Text="Intermediate milestones" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="IntermediateMilestonesExpanderHeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference IntermediateMilestonesExpander}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- intermediate milestone 0" x:Name="IntermediateMilestone0"/>
+                        <Label Text="- intermediate milestone 1" x:Name="IntermediateMilestone1"/>
+                        <Label Text="- intermediate milestone 2" x:Name="IntermediateMilestone2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <Label Text="Advanced level"
+                   TextColor="#7356FF"
+                   FontSize="11"
+                   FontFamily="PoppinsSemiBold"
+                   HorizontalOptions="Center"/>
+
+            <mct:Expander x:Name="AdvancedTaskExpander0">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="AdvancedTask0"
+                               Text="Advanced task 0" 
+                               FontFamily="InterSemiBold"
+                               FontSize="11" 
+                               TextColor="#1D3A70" 
+                               Grid.Column="0" 
+                               HeightRequest="21"
+                               WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="AdvancedTaskExpander0HeaderImage" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={x:Reference AdvancedTaskExpander0}, Path=IsExpanded}"
+                                             Value="True">
+
+                                    <Setter Property="Rotation"
+                                            Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- advanced subtask 0_0" x:Name="AdvancedSubtask0_0"/>
+                        <Label Text="- advanced subtask 0_1" x:Name="AdvancedSubtask0_1"/>
+                        <Label Text="- advanced subtask 0_2" x:Name="AdvancedSubtask0_2"/>
+                        <Label Text="- advanced resource 0_0" x:Name="AdvancedResource0_0"/>
+                        <Label Text="- advanced resource 0_1" x:Name="AdvancedResource0_1"/>
+                        <Label Text="- advanced resource 0_2" x:Name="AdvancedResource0_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="AdvancedTaskExpander1">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="AdvancedTask1"  
+                                Text="Advanced task 1" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="AdvancedTaskExpander1HeaderImage" 
+                               HeightRequest="22" 
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                             Binding="{Binding Source={x:Reference AdvancedTaskExpander1}, Path=IsExpanded}"
+                                             Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- advanced subtask 1_0" x:Name="AdvancedSubtask1_0"/>
+                        <Label Text="- advanced subtask 1_1" x:Name="AdvancedSubtask1_1"/>
+                        <Label Text="- advanced subtask 1_2" x:Name="AdvancedSubtask1_2"/>
+                        <Label Text="- advanced resource 1_0" x:Name="AdvancedResource1_0"/>
+                        <Label Text="- advanced resource 1_1" x:Name="AdvancedResource1_1"/>
+                        <Label Text="- advanced resource 1_2" x:Name="AdvancedResource1_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="AdvancedTaskExpander2">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="AdvancedTask2"
+                                Text="Advanced task 2" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="AdvancedTaskExpander2HeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference AdvancedTaskExpander2}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- advanced subtask 2_0" x:Name="AdvancedSubtask2_0"/>
+                        <Label Text="- advanced subtask 2_1" x:Name="AdvancedSubtask2_1"/>
+                        <Label Text="- advanced subtask 2_2" x:Name="AdvancedSubtask2_2"/>
+                        <Label Text="- advanced resource 2_0" x:Name="AdvancedResource2_0"/>
+                        <Label Text="- advanced resource 2_1" x:Name="AdvancedResource2_1"/>
+                        <Label Text="- advanced resource 2_2" x:Name="AdvancedResource2_2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="AdvancedMilestonesExpander">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="AdvancedMilestones"
+                                Text="Advanced milestones" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="AdvancedMilestonesExpanderHeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference AdvancedMilestonesExpander}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- advanced milestone 0" x:Name="AdvancedMilestone0"/>
+                        <Label Text="- advanced milestone 1" x:Name="AdvancedMilestone1"/>
+                        <Label Text="- advanced milestone 2" x:Name="AdvancedMilestone2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <Label Text="Extras"
+                   TextColor="#7356FF"
+                   FontSize="11"
+                   FontFamily="PoppinsSemiBold"
+                   HorizontalOptions="Center"/>
+
+            <mct:Expander x:Name="SupplementarySkillsExpander">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="SupplementarySkills"
+                                Text="Supplementary skills" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="SupplementarySkillsExpanderHeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference SupplementarySkillsExpander}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- supplementary skill 0" x:Name="SupplementarySkill0"/>
+                        <Label Text="- supplementary skill 1" x:Name="SupplementarySkill1"/>
+                        <Label Text="- supplementary skill 2" x:Name="SupplementarySkill2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
+            </mct:Expander>
+
+            <mct:Expander x:Name="StayAbreastStrategiesExpander">
+
+                <mct:Expander.Header>
+
+                    <Grid BackgroundColor="#F3F2FF" Padding="10">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label  x:Name="StayAbreastStrategies"
+                                Text="Stay abreast strategies" 
+                                FontFamily="InterSemiBold" 
+                                FontSize="11" 
+                                TextColor="#1D3A70" 
+                                Grid.Column="0" 
+                                HeightRequest="21" 
+                                WidthRequest="190" />
+
+                        <Image Grid.Column="1" 
+                               x:Name="StayAbreastStrategiesExpanderHeaderImage" 
+                               HeightRequest="22"
+                               WidthRequest="22"  
+                               Source="expand.png" 
+                               Aspect="Fill">
+
+                            <Image.Triggers>
+
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding Source={x:Reference StayAbreastStrategiesExpander}, Path=IsExpanded}"
+                                         Value="True">
+
+                                    <Setter Property="Rotation"
+                                        Value="180" />
+
+                                </DataTrigger>
+
+                            </Image.Triggers>
+
+                        </Image>
+
+                    </Grid>
+
+                </mct:Expander.Header>
+
+                <mct:Expander.Content>
+
+                    <StackLayout Padding="10">
+
+                        <Label Text="- stay abreast strategy 0" x:Name="StayAbreastStrategy0"/>
+                        <Label Text="- stay abreast strategy 1" x:Name="StayAbreastStrategy1"/>
+                        <Label Text="- stay abreast strategy 2" x:Name="StayAbreastStrategy2"/>
+
+                    </StackLayout>
+
+                </mct:Expander.Content>
+
             </mct:Expander>
 
             <Button

@@ -10,9 +10,11 @@
             <Grid BackgroundColor="#00F9FAFB" Padding="10">
 
                 <Grid.ColumnDefinitions>
+                    
                     <ColumnDefinition Width="38" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="38" />
+                    
                 </Grid.ColumnDefinitions>
 
                 <Image x:Name="ReturnImage" 
@@ -21,10 +23,14 @@
                        WidthRequest="32"  
                        Source="return.png" 
                        Aspect="Fill">
+                    
                     <Image.GestureRecognizers>
+                        
                         <TapGestureRecognizer Tapped="NatigateBack"
                                               NumberOfTapsRequired="1" />
+                        
                     </Image.GestureRecognizers>
+                    
                 </Image>
 
                 <Label x:Name="TopTextLabel"

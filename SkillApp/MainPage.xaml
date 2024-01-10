@@ -51,6 +51,7 @@
                 BackgroundColor="#F3F2FF"
                 BorderColor="#7355FF"
                 BorderWidth="1"
+                Clicked="NavigateRoadmapSelectionPage"
                 HorizontalOptions="Fill">
                 <Button.Shadow>
                     <Shadow Brush="Black"
