@@ -296,7 +296,46 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
             }
         }
 
-        private static RootObject DeserializeRoadMap(string json)
+		public static void MoveRoadmapToCompleted(string roadmapPrefix)
+		{
+			try
+			{
+				EnsureDirectoryExists();
+
+				string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{roadmapPrefix}_*.json");
+
+				if (matchingFiles.Length > 0)
+				{
+					string latestFilePath = matchingFiles[0];
+
+					if (!string.IsNullOrEmpty(latestFilePath))
+					{
+						string completedDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps", "Completed");
+						EnsureDirectoryExists(completedDirectory);
+
+						string newFilePath = Path.Combine(completedDirectory, Path.GetFileName(latestFilePath));
+
+						File.Move(latestFilePath, newFilePath);
+						log.Info($"Roadmap moved to Completed directory: {newFilePath}");
+					}
+					else
+					{
+						throw new InvalidOperationException($"Failed to determine the latest file for prefix '{roadmapPrefix}'.");
+					}
+				}
+				else
+				{
+					throw new InvalidOperationException($"No matching file found for prefix '{roadmapPrefix}'.");
+				}
+			}
+			catch (Exception ex)
+			{
+				log.Error($"An unexpected error occurred: {ex.Message}", ex);
+				throw;
+			}
+		}
+
+		private static RootObject DeserializeRoadMap(string json)
         {
             try
             {
@@ -318,5 +357,13 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
             }
         }
 
-    }
+		private static void EnsureDirectoryExists(string directoryPath)
+		{
+			if (!Directory.Exists(directoryPath))
+			{
+				Directory.CreateDirectory(directoryPath);
+			}
+		}
+
+	}
 }
