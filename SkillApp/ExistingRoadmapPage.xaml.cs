@@ -1,11 +1,11 @@
 namespace SkillApp;
 
-public partial class RoadmapPage : ContentPage
+public partial class ExistingRoadmapPage : ContentPage
 {
     RootObject obj;
-    public RoadmapPage(RootObject obj)
-    {
-        InitializeComponent();
+    public ExistingRoadmapPage(RootObject obj)
+	{
+		InitializeComponent();
 
         this.obj = obj;
 
@@ -29,19 +29,19 @@ public partial class RoadmapPage : ContentPage
 
         BeginerTask0.Text = obj.Roadmap.Beginner.Tasks[0].TaskDescription;
         BegginerSubtask0_0.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[0];
-        BegginerSubtask0_1.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[1];
+        BegginerSubtask0_2.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[1];
         BegginerSubtask0_2.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[2];
         BegginerResource0_0.Text = beginnerResources0;
 
         BeginerTask1.Text = obj.Roadmap.Beginner.Tasks[1].TaskDescription;
         BegginerSubtask1_0.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[0];
-        BegginerSubtask1_1.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[1];
+        BegginerSubtask1_2.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[1];
         BegginerSubtask1_2.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[2];
         BegginerResource1_0.Text = beginnerResources1;
 
         BeginerTask2.Text = obj.Roadmap.Beginner.Tasks[2].TaskDescription;
         BegginerSubtask2_0.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[0];
-        BegginerSubtask2_1.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[1];
+        BegginerSubtask2_2.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[1];
         BegginerSubtask2_2.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[2];
         BegginerResource2_0.Text = beginnerResources2;
 
@@ -70,19 +70,19 @@ public partial class RoadmapPage : ContentPage
 
         IntermediateTask0.Text = obj.Roadmap.Intermediate.Tasks[0].TaskDescription;
         IntermediateSubtask0_0.Text = obj.Roadmap.Intermediate.Tasks[0].Subtasks[0];
-        IntermediateSubtask0_1.Text = obj.Roadmap.Intermediate.Tasks[0].Subtasks[1];
+        IntermediateSubtask0_2.Text = obj.Roadmap.Intermediate.Tasks[0].Subtasks[1];
         IntermediateSubtask0_2.Text = obj.Roadmap.Intermediate.Tasks[0].Subtasks[2];
         IntermediateResource0_0.Text = intermediateResources0;
 
         IntermediateTask1.Text = obj.Roadmap.Intermediate.Tasks[1].TaskDescription;
         IntermediateSubtask1_0.Text = obj.Roadmap.Intermediate.Tasks[1].Subtasks[0];
-        IntermediateSubtask1_1.Text = obj.Roadmap.Intermediate.Tasks[1].Subtasks[1];
+        IntermediateSubtask1_2.Text = obj.Roadmap.Intermediate.Tasks[1].Subtasks[1];
         IntermediateSubtask1_2.Text = obj.Roadmap.Intermediate.Tasks[1].Subtasks[2];
         IntermediateResource1_0.Text = intermediateResources1;
 
         IntermediateTask2.Text = obj.Roadmap.Intermediate.Tasks[2].TaskDescription;
         IntermediateSubtask2_0.Text = obj.Roadmap.Intermediate.Tasks[2].Subtasks[0];
-        IntermediateSubtask2_1.Text = obj.Roadmap.Intermediate.Tasks[2].Subtasks[1];
+        IntermediateSubtask2_2.Text = obj.Roadmap.Intermediate.Tasks[2].Subtasks[1];
         IntermediateSubtask2_2.Text = obj.Roadmap.Intermediate.Tasks[2].Subtasks[2];
         IntermediateResource2_0.Text = intermediateResources2;
 
@@ -111,19 +111,19 @@ public partial class RoadmapPage : ContentPage
 
         AdvancedTask0.Text = obj.Roadmap.Advanced.Tasks[0].TaskDescription;
         AdvancedSubtask0_0.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[0];
-        AdvancedSubtask0_1.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[1];
+        AdvancedSubtask0_2.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[1];
         AdvancedSubtask0_2.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[2];
         AdvancedResource0_0.Text = advancedResources0;
 
         AdvancedTask1.Text = obj.Roadmap.Advanced.Tasks[1].TaskDescription;
         AdvancedSubtask1_0.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[0];
-        AdvancedSubtask1_1.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[1];
+        AdvancedSubtask1_2.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[1];
         AdvancedSubtask1_2.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[2];
         AdvancedResource1_0.Text = advancedResources1;
 
         AdvancedTask2.Text = obj.Roadmap.Advanced.Tasks[2].TaskDescription;
         AdvancedSubtask2_0.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[0];
-        AdvancedSubtask2_1.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[1];
+        AdvancedSubtask2_2.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[1];
         AdvancedSubtask2_2.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[2];
         AdvancedResource2_0.Text = advancedResources2;
 

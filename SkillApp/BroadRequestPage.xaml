@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.BroadRequestPage">
+    
+    <ScrollView>
+
+        <StackLayout HorizontalOptions="Center" Spacing="5">
+
+            <Grid BackgroundColor="#00F9FAFB" Padding="10">
+
+                <Grid.ColumnDefinitions>
+                    
+                    <ColumnDefinition Width="38" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="38" />
+                    
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="ReturnImage" 
+                       Grid.Column="0"
+                       HeightRequest="32" 
+                       WidthRequest="32"  
+                       Source="return.png" 
+                       Aspect="Fill">
+                    
+                    <Image.GestureRecognizers>
+                        
+                        <TapGestureRecognizer Tapped="NatigateBack"
+                                              NumberOfTapsRequired="1" />
+                        
+                    </Image.GestureRecognizers>
+                    
+                </Image>
+
+                <Label x:Name="TopTextLabel"
+                       Grid.Column="1" 
+                       Text="Step 1" 
+                       FontSize="16"
+                       FontFamily="InterBold"
+                       TextColor="#1D3A70" 
+                       HeightRequest="25" 
+                       WidthRequest="180" 
+                       HorizontalTextAlignment="Center"/>
+
+                <Image x:Name="MenuImage" 
+                       Grid.Column="2" 
+                       HeightRequest="32" 
+                       WidthRequest="32"  
+                       Source="menu.png" 
+                       Aspect="Fill"/>
+
+            </Grid>
+
+            <Label HeightRequest="2"/>
+
+            <Image x:Name="BroadRequestTop"
+                   HeightRequest="120" 
+                   WidthRequest="255"  
+                   Source="broad_request_top.png"
+                   Aspect="Fill"/>
+
+            <Label HeightRequest="5"/>
+
+            <Border HeightRequest="200" 
+                    WidthRequest="255"
+                    StrokeShape="RoundRectangle 10,10,10,10" 
+                    Stroke="#00FFFFFF">
+
+                <Border.Background>
+
+                    <LinearGradientBrush StartPoint="1,1 " EndPoint="0,0">
+                        <GradientStop Color="#a08cfc"
+                          Offset="0.1" />
+                        <GradientStop Color="#a28dfc"
+                          Offset="0.1" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+                <VerticalStackLayout>
+
+                    <Label HeightRequest="20"/>
+
+                    <Label HeightRequest="25"
+                           WidthRequest="225"
+                           Text="Please write the field"
+                           FontFamily="PoppinsSemiBold"
+                           FontSize="13"
+                           TextColor="#FFFFFF"
+                           Background="#00FFFFFF"
+                           BackgroundColor="#00FFFFFF"/>
+
+                    <Border VerticalOptions="End" 
+                            StrokeShape="RoundRectangle 10,10,10,10" 
+                            Stroke="White" 
+                            Background="White" 
+                            BackgroundColor="White" 
+                            WidthRequest="240">
+
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Offset="0,5"
+                                    Radius="3"
+                                    Opacity="0.1" />
+                        </Border.Shadow>
+
+                        <HorizontalStackLayout BackgroundColor="White" WidthRequest="240" HeightRequest="40">
+
+                            <Entry x:Name="RequestFieldEntry"
+                                   Placeholder="Programing"
+                                   TextColor="#1D3A70"
+                                   HeightRequest="55"
+                                   WidthRequest="255"/>
+
+                            <Image x:Name="RequestFieldSearchImage"
+                                   HeightRequest="25" 
+                                   WidthRequest="25"  
+                                   Source="search.png" 
+                                   Aspect="Fill"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                    <Label HeightRequest="20"/>
+
+                    <Label HeightRequest="25"
+                           WidthRequest="225"
+                           Text="Also, level of desired knowledge"
+                           FontSize="13"
+                           FontFamily="PoppinsSemiBold"
+                           TextColor="#FFFFFF"
+                           Background="#00FFFFFF"
+                           BackgroundColor="#00FFFFFF"/>
+
+                    <Border VerticalOptions="End" 
+                            StrokeShape="RoundRectangle 10,10,10,10" 
+                            Stroke="White" 
+                            Background="White" 
+                            BackgroundColor="White" 
+                            WidthRequest="240">
+
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Offset="0,5"
+                                    Radius="3"
+                                    Opacity="0.1" />
+                        </Border.Shadow>
+
+                        <HorizontalStackLayout BackgroundColor="White" WidthRequest="240" HeightRequest="40">
+
+                            <Entry x:Name="DesiredKnowledgeLevelEntry"
+                                   Placeholder="Beginner"
+                                   TextColor="#1D3A70"
+                                   HeightRequest="55"
+                                   WidthRequest="255"/>
+
+                            <Image x:Name="DesiredKnowledgeSearchImage"
+                                   HeightRequest="25" 
+                                   WidthRequest="25"  
+                                   Source="search.png" 
+                                   Aspect="Fill"/>
+
+                        </HorizontalStackLayout>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Label HeightRequest="5"/>
+
+            <Button
+                x:Name="CompleteBtn"
+                CornerRadius="10"
+                HeightRequest="25"
+                WidthRequest="240"
+                Text="Complete"
+                FontFamily="InterSemiBold"
+                FontSize="13"
+                FontAutoScalingEnabled="True"
+                TextColor="#F3F2FF"
+                BackgroundColor="#7355FF"
+                Clicked="NavigateRequestPage"
+                VerticalOptions="EndAndExpand">
+                <Button.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="0,5"
+                            Radius="3"
+                            Opacity="0.2" />
+                </Button.Shadow>
+            </Button>
+
+            <Label HeightRequest="20"/>
+
+        </StackLayout>
+
+    </ScrollView>
+    
+</ContentPage>

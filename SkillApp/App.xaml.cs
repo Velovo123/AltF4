@@ -8,8 +8,8 @@ namespace SkillApp
 {
     public partial class App : Application
     {
-        const int WindowWidth = 360;
-        const int WindowHeight = 800;
+        const int WindowWidth = 385;
+        const int WindowHeight = 790;
         public App()
         {
             InitializeComponent();
