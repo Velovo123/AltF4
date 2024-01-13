@@ -1,6 +1,4 @@
 
-using Microsoft.Maui.Storage;
-
 namespace SkillAppTests
 {
     [TestClass]
@@ -11,6 +9,7 @@ namespace SkillAppTests
         [TestMethod]
         public async Task GenerateRoadMap_ValidInput_ReturnsRoadMap()
         {
+            Operator.GetApiKeyFromAzure();
             //Arrange
             var spheres = new List<string> { "Programming", "Data Science", "Web Development", "Machine Learning", "Cybersecurity" };
             var levels = new List<string> { "Beginner", "Intermediate", "Advanced" };
