@@ -26,6 +26,8 @@ namespace SkillApp
 
     public class RootObject
     {
+        [JsonProperty("title")]
+        public string Title { get; set; }
         [JsonProperty("aim")]
         public string Aim { get; set; }
         [JsonProperty("roadmap")]

@@ -1,4 +1,6 @@
 
+using Microsoft.Maui.Storage;
+
 namespace SkillAppTests
 {
     [TestClass]
@@ -6,58 +8,59 @@ namespace SkillAppTests
     {
         private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
-        //[TestMethod]
-        //public async Task GenerateRoadMap_ValidInput_ReturnsRoadMap()
-        //{
-        //    //Arrange
-        //    var spheres = new List<string> { "Programming", "Data Science", "Web Development", "Machine Learning", "Cybersecurity" };
-        //    var levels = new List<string> { "Beginner", "Intermediate", "Advanced" };
-        //    var aims = new List<string> { "Learn the Basics", "Build Advanced Projects", "Master the Craft", "Specialize in a Field" };
+        [TestMethod]
+        public async Task GenerateRoadMap_ValidInput_ReturnsRoadMap()
+        {
+            //Arrange
+            var spheres = new List<string> { "Programming", "Data Science", "Web Development", "Machine Learning", "Cybersecurity" };
+            var levels = new List<string> { "Beginner", "Intermediate", "Advanced" };
+            var aims = new List<string> { "Learn the Basics", "Build Advanced Projects", "Master the Craft", "Specialize in a Field" };
 
-        //    Random random = new Random();
-        //    string sphere = spheres[random.Next(spheres.Count)];
-        //    string level = levels[random.Next(levels.Count)];
-        //    string aim = aims[random.Next(aims.Count)];
+            Random random = new Random();
+            string sphere = spheres[random.Next(spheres.Count)];
+            string level = levels[random.Next(levels.Count)];
+            string aim = aims[random.Next(aims.Count)];
 
-        //    // Act
-        //    var roadmap = await Operator.GenerateRoadMap(sphere, level, aim);
+            // Act
+            var roadmap = await Operator.GenerateRoadMap(sphere, level, aim);
 
-        //    // Assert
-        //    Assert.IsNotNull(roadmap);
-        //    Assert.IsNotNull(roadmap.Roadmap);
-        //    Assert.IsNotNull(roadmap.Aim);
-        //    Assert.IsNotNull(roadmap.Supplementary_skills);
-        //    Assert.IsNotNull(roadmap.Stay_abreast_strategies);
-        //    Assert.IsNotNull(roadmap.Roadmap.Beginner);
-        //    Assert.IsNotNull(roadmap.Roadmap.Intermediate);
-        //    Assert.IsNotNull(roadmap.Roadmap.Advanced);
-        //    Assert.IsNotNull(roadmap.Roadmap.Beginner.Milestones);
-        //    Assert.IsNotNull(roadmap.Roadmap.Intermediate.Milestones);
-        //    Assert.IsNotNull(roadmap.Roadmap.Advanced.Milestones);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[0].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[1].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[2].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[0].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[1].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[2].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[0].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[1].Subtasks.Count);
-        //    Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[2].Subtasks.Count);
-        //    Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[0].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[1].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[2].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[0].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[1].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[2].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[0].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[1].Resources.Count > 0);
-        //    Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[2].Resources.Count > 0);
-        //    Assert.IsFalse(roadmap.Roadmap.Advanced.Tasks[0].Resources[0].Contains(' '));
-        //    Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[0].Resources[0].Contains("https://"));
-        //}
+            // Assert
+            Assert.IsNotNull(roadmap);
+            Assert.IsNotNull(roadmap.Roadmap);
+            Assert.IsNotNull(roadmap.Title);
+            Assert.IsNotNull(roadmap.Aim);
+            Assert.IsNotNull(roadmap.Supplementary_skills);
+            Assert.IsNotNull(roadmap.Stay_abreast_strategies);
+            Assert.IsNotNull(roadmap.Roadmap.Beginner);
+            Assert.IsNotNull(roadmap.Roadmap.Intermediate);
+            Assert.IsNotNull(roadmap.Roadmap.Advanced);
+            Assert.IsNotNull(roadmap.Roadmap.Beginner.Milestones);
+            Assert.IsNotNull(roadmap.Roadmap.Intermediate.Milestones);
+            Assert.IsNotNull(roadmap.Roadmap.Advanced.Milestones);
+            Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[0].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[1].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Beginner.Tasks[2].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[0].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[1].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Intermediate.Tasks[2].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[0].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[1].Subtasks.Count);
+            Assert.AreEqual(3, roadmap.Roadmap.Advanced.Tasks[2].Subtasks.Count);
+            Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[0].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[1].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Intermediate.Tasks[2].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[0].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[1].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[2].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[0].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[1].Resources.Count > 0);
+            Assert.IsTrue(roadmap.Roadmap.Beginner.Tasks[2].Resources.Count > 0);
+            Assert.IsFalse(roadmap.Roadmap.Advanced.Tasks[0].Resources[0].Contains(' '));
+            Assert.IsTrue(roadmap.Roadmap.Advanced.Tasks[0].Resources[0].Contains("https://"));
+        }
 
         [TestMethod]
         public async Task GenerateRoadMap_InvalidInput_ThrowsArgumentException()
@@ -69,15 +72,6 @@ namespace SkillAppTests
 
             //Act and Assert
             await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await Operator.GenerateRoadMap(sphere, level, aim));
-        }
-        [TestMethod]
-        public void ReadRoadMapFromFile_FileFound_ReturnsRootObject()
-        {
-            //Act
-            var obj = Operator.ReadRoadMapFromFile("Learn the Basics of Advanced Machine Learning");
-
-            //Assert
-            Assert.IsNotNull(obj);
         }
 
         [TestMethod]
@@ -105,8 +99,8 @@ namespace SkillAppTests
             List<string> roadmapNames = Operator.GetAllRoadmaps();
 
             // Assert
-            CollectionAssert.AreEquivalent(new List<string> { "MachineLearning", "DataScience", "Programming",
-            "Learn the Basics of Advanced Machine Learning"}, roadmapNames);
+            CollectionAssert.AreEquivalent(new List<string> { "MachineLearning", "DataScience", "Programming" }
+            , roadmapNames);
 
         }
 
@@ -135,36 +129,28 @@ namespace SkillAppTests
             File.WriteAllText(filePath, "{}");
         }
 
-        [TestCleanup]
+		[TestCleanup]
         public void TestCleanup()
         {
-            if (Directory.Exists(roadmapDirectory))
+			string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
+			if (Directory.Exists(roadmapDirectory))
             {
-                string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
-
-                foreach (string file in files)
-                {
-                    if (!file.EndsWith("Learn the Basics of Data Science_20231228_124805.json",
-                        StringComparison.OrdinalIgnoreCase)
-                        && !file.EndsWith("Learn the Basics of Advanced Machine Learning_20231228_015012.json",
-                        StringComparison.OrdinalIgnoreCase))
-                    {
-                        File.Delete(file);
-                    }
-                }
-            }
-
+				foreach (string file in files)
+				{
+					File.Delete(file);
+				}
+			}
 			if (Directory.Exists(Path.Combine(roadmapDirectory, "Completed")))
-			{
-				string[] files = Directory.GetFiles(Path.Combine(roadmapDirectory, "Completed"), "*.json");
-                foreach(string file in files)
+            {
+                string[] directoryFiles = Directory.GetFiles(Path.Combine(roadmapDirectory, "Completed"), "*.json");
+                foreach (string file in directoryFiles)
                 {
                     File.Delete(file);
                 }
                 Directory.Delete(Path.Combine(roadmapDirectory, "Completed"));
-			}
+            }
 
-		}
+        }
 
 
 

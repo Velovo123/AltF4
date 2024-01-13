@@ -134,7 +134,7 @@ Please note that the provided roadmap is expressed in JSON format. Adjust the UR
 Notice that there must be 3 tasks for every level, 3 subtasks for every task,you can give any amount of URL's for recources not only 2(how many can you find in internet)(PROVIDE REAL URL'S THAT EXIST).
 
 
-Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""beginner"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""intermediate"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""advanced"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] } }, ""supplementary_skills"": [], ""stay_abreast_strategies"": [] }";
+Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""beginner"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""intermediate"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""advanced"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] } }, ""supplementary_skills"": [], ""stay_abreast_strategies"": [] }";
 
         /// <summary>
         /// Generates a roadmap based on the provided parameters using the OpenAI GPT-3.5 Turbo model.
@@ -181,7 +181,7 @@ Roadmap format: @""{ ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""be
                     {
                         RootObject obj = DeserializeRoadMap(jsonString);
                         EnsureDirectoryExists();
-                        string fileName = $"{obj.Aim}_{DateTime.Now:yyyyMMdd_HHmmss}.json";
+                        string fileName = $"{obj.Title}_{DateTime.Now:yyyyMMdd_HHmmss}.json";
                         string filePath = Path.Combine(roadmapDirectory, fileName);
 
                         File.WriteAllText(filePath, jsonString);
