@@ -3,17 +3,21 @@ using OpenAI;
 using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
 using OpenAI.ObjectModels;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using System.Runtime.CompilerServices;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace SkillApp
 {
     public static class Operator
     {
+   
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        private const string OpenApiKey = "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";
+        private static string OpenApiKey;
 
-        private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
+		private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
         private static readonly string promptTemplate1 = @"Create a detailed roadmap to enhance expertise and knowledge in [{0}], specifically focusing on [{1}] aiming to [{2}]. The roadmap is structured into three levels - Beginner, Intermediate, and Advanced - each containing tasks, subtasks, milestones, and recommended resources.
 
@@ -144,10 +148,22 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
         /// <param name="aim">The aim value.</param>
         /// <returns>The deserialized roadmap object.</returns>
         /// <exception cref="Exception">Thrown when an error occurs during the generation process.</exception>
+        /// 
+
+        public static void GetApiKeyFromAzure()
+        {
+			string keyValutUri = "https://skillapp-keyvault.vault.azure.net/";
+			string secretName = "SecretName";
+
+			var client = new SecretClient(new Uri(keyValutUri), new InteractiveBrowserCredential());
+			var secret = client.GetSecret(secretName);
+
+			OpenApiKey = secret.Value.Value;
+		}
         public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
-            try
-            {
+			try
+			{
                 log.Info("Starting generate roadmap");
                 if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
                 {

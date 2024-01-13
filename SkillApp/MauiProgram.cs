@@ -18,6 +18,7 @@ namespace SkillApp
                     fonts.AddFont("Inter-Bold.ttf", "InterBold");
                     fonts.AddFont("Inter-SemiBold.ttf", "InterSemiBold");
                 });
+            Operator.GetApiKeyFromAzure();
 
 #if DEBUG
             builder.Logging.AddDebug();
