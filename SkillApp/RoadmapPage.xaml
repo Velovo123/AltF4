@@ -106,8 +106,8 @@
                 </mct:Expander.Header>
                 
                 <mct:Expander.Content>
-                    
-                    <StackLayout Padding="10" WidthRequest="250">
+
+                    <StackLayout x:Name="labelStackLayout" Padding="10" WidthRequest="250">
                         
                         <Label Text="- beginer subtask 0_0" x:Name="BegginerSubtask0_0"/>
                         <Label Text="- beginer subtask 0_1" x:Name="BegginerSubtask0_1"/>
@@ -139,7 +139,6 @@
                                 FontSize="11" 
                                 TextColor="#1D3A70" 
                                 Grid.Column="0" 
-                                HeightRequest="21" 
                                 WidthRequest="190" />
                         
                         <Image Grid.Column="1" 
@@ -232,7 +231,7 @@
                 </mct:Expander.Header>
                 
                 <mct:Expander.Content>
-                    
+
                     <StackLayout Padding="10">
 
                         <Label Text="- beginer subtask 2_0" x:Name="BegginerSubtask2_0"/>

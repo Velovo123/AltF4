@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="SkillApp.RoadmapLevel1"
+             x:Class="SkillApp.RoadmapLevel3"
              BackgroundColor="#F3F2FF">
     
     <ScrollView>
@@ -51,7 +51,7 @@
 
             </Grid>
 
-            <mct:Expander x:Name="BeginerTaskExpander0">
+            <mct:Expander x:Name="AdvancedTaskExpander0">
 
                 <mct:Expander.Header>
 
@@ -64,8 +64,8 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <Label x:Name="BeginerTask0"
-                               Text="Beginer task 0" 
+                        <Label x:Name="AdvancedTask0"
+                               Text="Advanced task 0" 
                                FontFamily="InterSemiBold"
                                FontSize="13" 
                                TextColor="#1D3A70" 
@@ -73,7 +73,7 @@
                                WidthRequest="190" />
 
                         <Image Grid.Column="1" 
-                               x:Name="BeginerTask0HeaderImage" 
+                               x:Name="AdvancedTask0HeaderImage" 
                                HeightRequest="22" 
                                WidthRequest="22"  
                                Source="expand.png" 
@@ -82,7 +82,7 @@
                             <Image.Triggers>
 
                                 <DataTrigger TargetType="Image"
-                                             Binding="{Binding Source={x:Reference BeginerTaskExpander0}, Path=IsExpanded}"
+                                             Binding="{Binding Source={x:Reference AdvancedTaskExpander0}, Path=IsExpanded}"
                                              Value="True">
 
                                     <Setter Property="Rotation"
@@ -100,13 +100,13 @@
 
                 <mct:Expander.Content>
 
-                    <StackLayout Padding="10" WidthRequest="240" x:Name="Beginer0LabelStackLayout">
+                    <StackLayout Padding="10" WidthRequest="240" x:Name="Advanced0LabelStackLayout">
 
-                        <Label Text="- beginer subtask 0_0" x:Name="BegginerSubtask0_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 0_0" x:Name="AdvancedSubtask0_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 0_1" x:Name="BegginerSubtask0_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 0_1" x:Name="AdvancedSubtask0_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 0_2" x:Name="BegginerSubtask0_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 0_2" x:Name="AdvancedSubtask0_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
 
                     </StackLayout>
@@ -115,7 +115,7 @@
 
             </mct:Expander>
 
-            <mct:Expander x:Name="BeginerTaskExpander1">
+            <mct:Expander x:Name="AdvancedTaskExpander1">
 
                 <mct:Expander.Header>
 
@@ -128,8 +128,8 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <Label  x:Name="BeginerTask1"  
-                                Text="Beginer task 1" 
+                        <Label  x:Name="AdvancedTask1"  
+                                Text="Advanced task 1" 
                                 FontFamily="InterSemiBold" 
                                 FontSize="13" 
                                 TextColor="#1D3A70" 
@@ -137,7 +137,7 @@
                                 WidthRequest="190" />
 
                         <Image Grid.Column="1" 
-                               x:Name="BeginerTask1HeaderImage" 
+                               x:Name="AdvancedTask1HeaderImage" 
                                HeightRequest="22" 
                                WidthRequest="22"  
                                Source="expand.png" 
@@ -146,7 +146,7 @@
                             <Image.Triggers>
 
                                 <DataTrigger TargetType="Image"
-                                             Binding="{Binding Source={x:Reference BeginerTaskExpander1}, Path=IsExpanded}"
+                                             Binding="{Binding Source={x:Reference AdvancedTaskExpander1}, Path=IsExpanded}"
                                              Value="True">
 
                                     <Setter Property="Rotation"
@@ -164,13 +164,13 @@
 
                 <mct:Expander.Content>
 
-                    <StackLayout Padding="10" WidthRequest="240" x:Name="Beginer1LabelStackLayout">
+                    <StackLayout Padding="10" WidthRequest="240" x:Name="Advanced1LabelStackLayout">
 
-                        <Label Text="- beginer subtask 1_0" x:Name="BegginerSubtask1_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 1_0" x:Name="AdvancedSubtask1_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 1_1" x:Name="BegginerSubtask1_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 1_1" x:Name="AdvancedSubtask1_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 1_2" x:Name="BegginerSubtask1_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 1_2" x:Name="AdvancedSubtask1_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
 
                     </StackLayout>
@@ -179,7 +179,7 @@
 
             </mct:Expander>
 
-            <mct:Expander x:Name="BeginerTaskExpander2">
+            <mct:Expander x:Name="AdvancedTaskExpander2">
 
                 <mct:Expander.Header>
 
@@ -192,8 +192,8 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <Label  x:Name="BeginerTask2"
-                                Text="Beginer task 2" 
+                        <Label  x:Name="AdvancedTask2"
+                                Text="Advanced task 2" 
                                 FontFamily="InterSemiBold" 
                                 FontSize="13" 
                                 TextColor="#1D3A70" 
@@ -201,7 +201,7 @@
                                 WidthRequest="190" />
 
                         <Image Grid.Column="1" 
-                               x:Name="BeginerTask2HeaderImage" 
+                               x:Name="AdvancedTask2HeaderImage" 
                                HeightRequest="22"
                                WidthRequest="22"  
                                Source="expand.png" 
@@ -210,7 +210,7 @@
                             <Image.Triggers>
 
                                 <DataTrigger TargetType="Image"
-                                         Binding="{Binding Source={x:Reference BeginerTaskExpander2}, Path=IsExpanded}"
+                                         Binding="{Binding Source={x:Reference AdvancedTaskExpander2}, Path=IsExpanded}"
                                          Value="True">
 
                                     <Setter Property="Rotation"
@@ -228,13 +228,13 @@
 
                 <mct:Expander.Content>
 
-                    <StackLayout Padding="10" WidthRequest="240" x:Name="Beginer2LabelStackLayout">
+                    <StackLayout Padding="10" WidthRequest="240" x:Name="Advanced2LabelStackLayout">
 
-                        <Label Text="- beginer subtask 2_0" x:Name="BegginerSubtask2_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 2_0" x:Name="AdvancedSubtask2_0" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 2_1" x:Name="BegginerSubtask2_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 2_1" x:Name="AdvancedSubtask2_1" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
-                        <Label Text="- beginer subtask 2_2" x:Name="BegginerSubtask2_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
+                        <Label Text="- advanced subtask 2_2" x:Name="AdvancedSubtask2_2" FontSize="11" FontFamily="InterRegular" TextColor="#1D3A70"/>
                         <Label/>
 
                     </StackLayout>

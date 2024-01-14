@@ -31,7 +31,33 @@ public partial class RoadmapPage : ContentPage
         BegginerSubtask0_0.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[0];
         BegginerSubtask0_1.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[1];
         BegginerSubtask0_2.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[2];
-        BegginerResource0_0.Text = beginnerResources0;
+
+        int counter = 1;
+
+        foreach (var link in obj.Roadmap.Beginner.Tasks[0].Resources)
+        {
+            var labelBegginerResource = new Label
+            {
+                Text = $"Resourse link {counter}",
+                FontSize = 11,
+                TextDecorations = TextDecorations.Underline,
+                //Margin = new Thickness(10, 10, 0, 0),
+                TextColor = Colors.DarkBlue,
+                GestureRecognizers =
+                {
+                    new TapGestureRecognizer
+                    {
+                        Command = new Command(() =>
+                        {
+                            Browser.OpenAsync(link);
+                        })
+                    }
+                }
+            };
+            labelStackLayout.Children.Add(labelBegginerResource);
+            counter++;
+        }
+            //BegginerResource0_0.Text = beginnerResources0;
 
         BeginerTask1.Text = obj.Roadmap.Beginner.Tasks[1].TaskDescription;
         BegginerSubtask1_0.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[0];
