@@ -35,7 +35,7 @@
 
                 <Image.GestureRecognizers>
 
-                    <TapGestureRecognizer Tapped="NatigateBack"
+                    <TapGestureRecognizer Tapped="NavigateBack"
                                           NumberOfTapsRequired="1" />
 
                 </Image.GestureRecognizers>
@@ -68,19 +68,25 @@
             <HorizontalStackLayout>
 
                 <VerticalStackLayout>
+                    <VerticalStackLayout>
 
-                    <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_1.png"
-                       Aspect="Fill">
+                        <Image HeightRequest="300"
+                           WidthRequest="180"  
+                           Source="roadmap_piece_1.png"
+                           Aspect="Fill">
 
-                        <Image.GestureRecognizers>
+                            <Image.GestureRecognizers>
 
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+                                <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                      Tapped="NavigateLevel1"/>
 
-                        </Image.GestureRecognizers>
+                            </Image.GestureRecognizers>
 
-                    </Image>
+                        </Image>
+
+                        <Label/>
+
+                    </VerticalStackLayout>
 
                     <Label HeightRequest="155"/>
 
@@ -95,7 +101,8 @@
 
                         <Image.GestureRecognizers>
 
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel1Checkpoint"/>
 
                         </Image.GestureRecognizers>
 
@@ -114,7 +121,48 @@
 
                         <Image.GestureRecognizers>
 
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel2"/>
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_4.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel2Checkpoint"/>
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_5.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel3"/>
 
                         </Image.GestureRecognizers>
 
@@ -133,13 +181,14 @@
 
                         <Image.GestureRecognizers>
 
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel3Checkpoint"/>
 
                         </Image.GestureRecognizers>
 
                     </Image>
 
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="168"/>
 
                 </VerticalStackLayout>
 
@@ -152,26 +201,8 @@
 
                         <Image.GestureRecognizers>
 
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
-
-                        </Image.GestureRecognizers>
-
-                    </Image>
-
-                    <Label HeightRequest="155"/>
-
-                </VerticalStackLayout>
-
-                <VerticalStackLayout>
-
-                    <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_2.png"
-                       Aspect="Fill">
-
-                        <Image.GestureRecognizers>
-
-                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel4"/>
 
                         </Image.GestureRecognizers>
 

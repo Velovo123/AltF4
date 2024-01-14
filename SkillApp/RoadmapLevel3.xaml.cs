@@ -1,22 +1,22 @@
 namespace SkillApp;
 
-public partial class RoadmapLevel1 : ContentPage
+public partial class RoadmapLevel3 : ContentPage
 {
     RootObject obj;
-    public RoadmapLevel1(RootObject obj)
+    public RoadmapLevel3(RootObject obj)
 	{
 		InitializeComponent();
 
         this.obj = obj;
 
-        BeginerTask0.Text = obj.Roadmap.Beginner.Tasks[0].TaskDescription;
-        BegginerSubtask0_0.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[0];
-        BegginerSubtask0_1.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[1];
-        BegginerSubtask0_2.Text = obj.Roadmap.Beginner.Tasks[0].Subtasks[2];
+        AdvancedTask0.Text = obj.Roadmap.Advanced.Tasks[0].TaskDescription;
+        AdvancedSubtask0_0.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[0];
+        AdvancedSubtask0_1.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[1];
+        AdvancedSubtask0_2.Text = obj.Roadmap.Advanced.Tasks[0].Subtasks[2];
 
         int counter = 1;
 
-        foreach (var link in obj.Roadmap.Beginner.Tasks[0].Resources)
+        foreach (var link in obj.Roadmap.Advanced.Tasks[0].Resources)
         {
             var labelBegginerResource = new Label
             {
@@ -37,18 +37,18 @@ public partial class RoadmapLevel1 : ContentPage
                     }
                 }
             };
-            Beginer0LabelStackLayout.Children.Add(labelBegginerResource);
+            Advanced0LabelStackLayout.Children.Add(labelBegginerResource);
             counter++;
         }
 
-        BeginerTask1.Text = obj.Roadmap.Beginner.Tasks[1].TaskDescription;
-        BegginerSubtask1_0.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[0];
-        BegginerSubtask1_1.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[1];
-        BegginerSubtask1_2.Text = obj.Roadmap.Beginner.Tasks[1].Subtasks[2];
+        AdvancedTask1.Text = obj.Roadmap.Advanced.Tasks[1].TaskDescription;
+        AdvancedSubtask1_0.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[0];
+        AdvancedSubtask1_1.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[1];
+        AdvancedSubtask1_2.Text = obj.Roadmap.Advanced.Tasks[1].Subtasks[2];
 
         counter = 1;
 
-        foreach (var link in obj.Roadmap.Beginner.Tasks[1].Resources)
+        foreach (var link in obj.Roadmap.Advanced.Tasks[1].Resources)
         {
             var labelBegginerResource = new Label
             {
@@ -69,20 +69,20 @@ public partial class RoadmapLevel1 : ContentPage
                     }
                 }
             };
-            Beginer1LabelStackLayout.Children.Add(labelBegginerResource);
+            Advanced1LabelStackLayout.Children.Add(labelBegginerResource);
             counter++;
         }
 
-        BeginerTask2.Text = obj.Roadmap.Beginner.Tasks[2].TaskDescription;
-        BegginerSubtask2_0.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[0];
-        BegginerSubtask2_1.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[1];
-        BegginerSubtask2_2.Text = obj.Roadmap.Beginner.Tasks[2].Subtasks[2];
+        AdvancedTask2.Text = obj.Roadmap.Advanced.Tasks[2].TaskDescription;
+        AdvancedSubtask2_0.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[0];
+        AdvancedSubtask2_1.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[1];
+        AdvancedSubtask2_2.Text = obj.Roadmap.Advanced.Tasks[2].Subtasks[2];
 
         counter = 1;
 
-        foreach (var link in obj.Roadmap.Beginner.Tasks[2].Resources)
+        foreach (var link in obj.Roadmap.Advanced.Tasks[2].Resources)
         {
-            var labelBegginerResource = new Label
+            var labelAdvancedResource = new Label
             {
                 Text = $"Resourse link {counter}",
                 FontSize = 11,
@@ -101,7 +101,7 @@ public partial class RoadmapLevel1 : ContentPage
                     }
                 }
             };
-            Beginer2LabelStackLayout.Children.Add(labelBegginerResource);
+            Advanced2LabelStackLayout.Children.Add(labelAdvancedResource);
             counter++;
         }
     }

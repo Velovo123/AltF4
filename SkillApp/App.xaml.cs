@@ -8,7 +8,7 @@ namespace SkillApp
 {
     public partial class App : Application
     {
-        const int WindowWidth = 380;
+        const int WindowWidth = 385;
         const int WindowHeight = 800;
         public App()
         {

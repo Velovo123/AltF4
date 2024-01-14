@@ -51,7 +51,7 @@ public partial class RoadmapSelectionPage : ContentPage
         else
         {
             var obj = Operator.ReadRoadMapFromFile(roadmapList[0]);
-            await Navigation.PushAsync(new RoadmapPage(obj), true);
+            await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
     }
     async void NatigateTR(System.Object sender, System.EventArgs e)
@@ -63,7 +63,7 @@ public partial class RoadmapSelectionPage : ContentPage
         else
         {
             var obj = Operator.ReadRoadMapFromFile(roadmapList[1]);
-            await Navigation.PushAsync(new RoadmapPage(obj), true);
+            await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
     }
     async void NatigateBL(System.Object sender, System.EventArgs e)
@@ -75,7 +75,7 @@ public partial class RoadmapSelectionPage : ContentPage
         else
         {
             var obj = Operator.ReadRoadMapFromFile(roadmapList[2]);
-            await Navigation.PushAsync(new RoadmapPage(obj), true);
+            await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
     }
     async void NatigateBR(System.Object sender, System.EventArgs e)
@@ -87,7 +87,7 @@ public partial class RoadmapSelectionPage : ContentPage
         else
         {
             var obj = Operator.ReadRoadMapFromFile(roadmapList[3]);
-            await Navigation.PushAsync(new RoadmapPage(obj), true);
+            await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
     }
 }
