@@ -12,7 +12,7 @@ namespace SkillApp
 {
     public static class Operator
     {
-   
+        public static bool GenerationSuccess { get; private set; } = false;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
         private static string OpenApiKey = "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";
@@ -202,6 +202,7 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
 
                         File.WriteAllText(filePath, jsonString);
                         log.Info("Roadmap was succesful generated");
+                        GenerationSuccess = true;
                         return obj;
                     }
                     else
