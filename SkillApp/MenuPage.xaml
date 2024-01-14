@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.MenuPage"
+             >
+    <VerticalStackLayout>
+        <Grid>
+            <Grid BackgroundColor="#00F9FAFB" Padding="10">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="38" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="38" />
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="ReturnImage" 
+           Grid.Column="0"
+           HeightRequest="32" 
+           WidthRequest="32"
+           Source="return.png" 
+           Aspect="Fill">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                                  NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label x:Name="TopTextLabel"
+           Grid.Column="1" 
+           Text="Request" 
+           FontSize="16"
+           FontFamily="InterBold"
+           TextColor="#1D3A70" 
+           HeightRequest="25" 
+           WidthRequest="180" 
+           HorizontalTextAlignment="Center"/>
+
+                <Image x:Name="MenuImage" 
+           Grid.Column="2" 
+           HeightRequest="32" 
+           WidthRequest="32"
+           Source="menu.png" 
+           Aspect="Fill"/>
+
+            </Grid>
+        </Grid>
+        <Grid>
+        <Image 
+            Source="menupage.png"
+            />
+            <Button
+                x:Name="HomePage"
+                WidthRequest="80"
+                HeightRequest="20"
+                Text="Home"
+                TextColor="#7355FF"
+                Margin="0,-300,100,0"
+                />
+            <Button
+                x:Name="ListPage"
+                WidthRequest="80"
+                HeightRequest="20"
+                Text="list"
+                Margin="0,-250,100,0"
+                />
+            <Button
+                x:Name="SubscribePage"
+                WidthRequest="90"
+                HeightRequest="20"
+                Text="subscribe"
+                Margin="0,-200,100,0"
+     /> 
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
