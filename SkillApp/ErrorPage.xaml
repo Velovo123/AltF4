@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.ErrorPage"
+             BackgroundColor="#F3F2FF">
+    
+    
+    <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+            <Grid>
+            <Image 
+    Source="error_page.png"
+    Margin="-5,89,97,89"    
+    Aspect="Fill"/>
+
+            <Image Source="badconnection.png"
+       Margin="0,400,0,0"
+       Aspect="Fill" 
+       HeightRequest="15"
+       WidthRequest="125"
+       />
+            <Image Source="group_1.png"
+       Margin="55,125,0,0"
+               
+       Aspect="Fill"
+       HeightRequest="200"
+       WidthRequest="100"/>
+
+        </Grid>
+
+        </VerticalStackLayout>
+    
+</ContentPage>
