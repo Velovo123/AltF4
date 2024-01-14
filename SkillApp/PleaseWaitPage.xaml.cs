@@ -10,15 +10,20 @@ namespace SkillApp
         public PleaseWaitPage(RootObject obj)
         {
             InitializeComponent();
-            StartLoadingAnimation();
+            this.obj = obj;
+            CheckRoadmap();
         }
 
-        async void StartLoadingAnimation()
+        async void CheckRoadmap()
         {
-
-            LoadingLabel.Text="Loading..";
-
-
+            if (Operator.GenerationSuccess)
+            {
+                await Navigation.PushAsync(new RoadmapPage(obj), true);
+            }
+            else
+            {
+                await Navigation.PushAsync(new FailedPage(), true);
+            }
         }
     }
 }

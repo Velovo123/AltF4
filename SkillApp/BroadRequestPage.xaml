@@ -108,7 +108,7 @@
                         <HorizontalStackLayout BackgroundColor="White" WidthRequest="240" HeightRequest="40">
 
                             <Entry x:Name="RequestFieldEntry"
-                                   Placeholder="Programing"
+                                   Placeholder="Programming"
                                    TextColor="#1D3A70"
                                    HeightRequest="55"
                                    WidthRequest="255"/>
