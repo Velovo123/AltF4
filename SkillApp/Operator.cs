@@ -5,7 +5,7 @@ using OpenAI.ObjectModels.RequestModels;
 using OpenAI.ObjectModels;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace SkillApp
@@ -15,7 +15,7 @@ namespace SkillApp
         public static bool GenerationSuccess { get; private set; } = false;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        private static string OpenApiKey = "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";
+        private static string OpenApiKey /*= "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"*/;
 
 		private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
@@ -150,27 +150,34 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
         /// <exception cref="Exception">Thrown when an error occurs during the generation process.</exception>
         /// 
 
-        //public static void GetApiKeyFromAzure()
-        //{
-        //    string keyValutUri = "https://skillapp-keyvault.vault.azure.net/";
-        //    string secretName = "SecretName";
+        public static void GetApiKeyFromAzure()
+        {
+            string keyValutUri = "https://skillapp-keyvault.vault.azure.net/";
+            string secretName = "SecretName";
 
-        //    var client = new SecretClient(new Uri(keyValutUri), new InteractiveBrowserCredential());
-        //    var secret = client.GetSecret(secretName);
+            var client = new SecretClient(new Uri(keyValutUri), new InteractiveBrowserCredential());
+            var secret = client.GetSecret(secretName);
 
-        //    OpenApiKey = secret.Value.Value;
-        //}
+            OpenApiKey = secret.Value.Value;
+        }
         public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
+            
 			try
 			{
+                GenerationSuccess = false;
                 log.Info("Starting generate roadmap");
                 if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
                 {
                     throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
                 }
 
-                var openAiService = new OpenAIService(new OpenAiOptions()
+				if(!(IsValidInput(sphere) && IsValidInput(level) && IsValidInput(aim)))
+                {
+					throw new ArgumentException("Invalid input parameters. Input may be malicious");
+				}
+
+				var openAiService = new OpenAIService(new OpenAiOptions()
                 {
                     ApiKey = OpenApiKey,
                 });
@@ -380,6 +387,11 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
 			{
 				Directory.CreateDirectory(directoryPath);
 			}
+		}
+
+        private static bool IsValidInput(string inputStr)
+		{
+			return Regex.IsMatch(inputStr, "^[a-zA-Z ]+$") && inputStr.Length <= 50;
 		}
 
 	}
