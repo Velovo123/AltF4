@@ -110,7 +110,7 @@
                 FontAutoScalingEnabled="True"
                 TextColor="#F3F2FF"
                 BackgroundColor="#7355FF"
-                Clicked="NavigatePleaseWaitPage"
+                Clicked="NavigateRoadmapPage"
                 VerticalOptions="End">
                 <Button.Shadow>
                     <Shadow Brush="Black"
