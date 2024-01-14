@@ -6,18 +6,19 @@ namespace SkillApp
 {
     public partial class PleaseWaitPage : ContentPage
     {
-        private int _counter;
-
-        public PleaseWaitPage()
+        RootObject obj;
+        public PleaseWaitPage(RootObject obj)
         {
             InitializeComponent();
             StartLoadingAnimation();
         }
 
-        private async void StartLoadingAnimation()
+        async void StartLoadingAnimation()
         {
-            
-            
+
+            LoadingLabel.Text="Loading..";
+
+
         }
     }
 }

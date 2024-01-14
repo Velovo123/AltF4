@@ -954,6 +954,7 @@
 
             <Button
                 x:Name="CompleteBtn"
+                Clicked="CompleteRoadmap"
                 CornerRadius="10"
                 HeightRequest="25"
                 WidthRequest="240"
