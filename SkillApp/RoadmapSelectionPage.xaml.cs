@@ -37,15 +37,10 @@ public partial class RoadmapSelectionPage : ContentPage
             }
         }
 
-            //TL_Label.Text = roadmapList[0];
-            //TR_Label.Text = roadmapList[1];
-            //BL_Label.Text = roadmapList[2];
-            //BR_Label.Text = roadmapList[3];
-
     }
     async void NatigateBack(System.Object sender, System.EventArgs e)
     {
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new MainPage(), true);
     }
     async void NatigateTL(System.Object sender, System.EventArgs e)
     {

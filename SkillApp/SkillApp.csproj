@@ -72,17 +72,14 @@
 	  <Compile Update="BroadRequestPage.xaml.cs">
 	    <DependentUpon>BroadRequestPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="VisualRoadmap.xaml.cs">
+	    <DependentUpon>VisualRoadmap.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Requestpage.xaml.cs">
 	    <DependentUpon>RequestPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="RoadmapPage.xaml.cs">
 	    <DependentUpon>RoadmapPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="PremiumPage.xaml.cs">
-	    <DependentUpon>PremiumPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="SettingsPage.xaml.cs">
-	    <DependentUpon>SettingsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -90,7 +87,7 @@
 	  <MauiXaml Update="BroadRequestPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ExistingRoadmapPage.xaml">
+	  <MauiXaml Update="VisualRoadmap.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RequestPage.xaml">
@@ -99,13 +96,7 @@
 	  <MauiXaml Update="RoadmapPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PremiumPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="RoadmapSelectionPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

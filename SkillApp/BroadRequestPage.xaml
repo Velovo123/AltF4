@@ -21,7 +21,7 @@
                        Grid.Column="0"
                        HeightRequest="32" 
                        WidthRequest="32"  
-                       Source="return.png" 
+                       Source="return_icon.png" 
                        Aspect="Fill">
                     
                     <Image.GestureRecognizers>

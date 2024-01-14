@@ -21,7 +21,7 @@
                        x:Name="ReturnImage" 
                        HeightRequest="32" 
                        WidthRequest="32"  
-                       Source="return.png" 
+                       Source="return_icon.png" 
                        Aspect="Fill">
                     
                     <Image.GestureRecognizers>
@@ -58,9 +58,9 @@
                    HorizontalOptions="Center"/>
 
             <mct:Expander x:Name="BeginerTaskExpander0">
-                
+
                 <mct:Expander.Header>
-                    
+
                     <Grid BackgroundColor="#F3F2FF" Padding="10">
                         
                         <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                                FontSize="11" 
                                TextColor="#1D3A70" 
                                Grid.Column="0" 
-                               HeightRequest="21"
+                               MaxLines="5"
                                WidthRequest="190" />
                         
                         <Image Grid.Column="1" 
@@ -107,7 +107,7 @@
                 
                 <mct:Expander.Content>
                     
-                    <StackLayout Padding="10">
+                    <StackLayout Padding="10" WidthRequest="250">
                         
                         <Label Text="- beginer subtask 0_0" x:Name="BegginerSubtask0_0"/>
                         <Label Text="- beginer subtask 0_1" x:Name="BegginerSubtask0_1"/>

@@ -28,7 +28,7 @@
                             Grid.Column="0"
                             HeightRequest="32" 
                             WidthRequest="32"  
-                            Source="return.png" 
+                            Source="return_icon.png" 
                             Aspect="Fill">
 
                         <Image.GestureRecognizers>
@@ -112,16 +112,18 @@
 
                             </Image>
 
-                            <Label HeightRequest="10"/>
+                            <Label HeightRequest="5"/>
 
                             <Label x:Name = "TL_Label"
+                                   HorizontalTextAlignment="Center"
+                                   WidthRequest="90"
                                    Text="new"
                                    TextColor="#7356FF"
-                                   FontSize="11"
+                                   FontSize="10"
                                    FontFamily="PoppinsSemiBold"
                                    HorizontalOptions="Center"/>
 
-                            </VerticalStackLayout>
+                        </VerticalStackLayout>
 
                     </Border>
 
@@ -148,8 +150,8 @@
                             <Label HeightRequest="10"/>
 
                             <Image Source="small_roadmap.png"
-                                    HeightRequest="40"
-                                    WidthRequest="40"
+                                    HeightRequest="60"
+                                    WidthRequest="60"
                                     Aspect="Fill">
 
                                 <Image.GestureRecognizers>
@@ -161,12 +163,14 @@
                                 
                             </Image>
 
-                            <Label HeightRequest="10"/>
+                            <Label HeightRequest="5"/>
 
                             <Label x:Name = "TR_Label"
+                                   HorizontalTextAlignment="Center"
+                                   WidthRequest="90"
                                    Text="new"
                                    TextColor="#7356FF"
-                                   FontSize="9"
+                                   FontSize="10"
                                    FontFamily="PoppinsSemiBold"
                                    HorizontalOptions="Center"/>
 
@@ -210,12 +214,14 @@
 
                             </Image>
 
-                            <Label HeightRequest="10"/>
+                            <Label HeightRequest="5"/>
 
                             <Label x:Name = "BL_Label"
+                                   HorizontalTextAlignment="Center"
+                                   WidthRequest="90"
                                    Text="new"
                                    TextColor="#7356FF"
-                                   FontSize="9"
+                                   FontSize="10"
                                    FontFamily="PoppinsSemiBold"
                                    HorizontalOptions="Center"/>
 
@@ -259,12 +265,14 @@
 
                             </Image>
 
-                            <Label HeightRequest="10"/>
+                            <Label HeightRequest="5"/>
 
                             <Label x:Name = "BR_Label"
+                                   HorizontalTextAlignment="Center"
+                                   WidthRequest="90"
                                    Text="new"
                                    TextColor="#7356FF"
-                                   FontSize="11"
+                                   FontSize="10"
                                    FontFamily="PoppinsSemiBold"
                                    HorizontalOptions="Center"/>
 
