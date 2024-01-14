@@ -145,4 +145,9 @@ public partial class RoadmapPage : ContentPage
     {
         await Navigation.PushAsync(new RoadmapSelectionPage(), true);
     }
+    async void CompleteRoadmap(System.Object sender, System.EventArgs e)
+    {
+        Operator.MoveRoadmapToCompleted(obj.Title);
+        await Navigation.PushAsync(new RoadmapSelectionPage(), true);
+    }
 }

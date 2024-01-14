@@ -15,8 +15,8 @@
             />
                 <StackLayout>
                 <Label
-                    x:Name="loadingLabel"
-                    Text="loading..."
+                    x:Name="LoadingLabel"
+                    Text="Loading..."
                     HeightRequest="20"
                     WidthRequest="105"
                     Margin="60,350,0,0"

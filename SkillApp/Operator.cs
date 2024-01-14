@@ -233,7 +233,7 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
         /// <summary>
         /// Reads a JSON file from the specified directory, deserializes it, and returns the RootObject.
         /// </summary>
-        /// <param name="fileName">The name of the JSON file to read.</param>
+        /// <param name="fileNamePrefix">The name of the JSON file to read.</param>
         /// <returns>RootObject representing the contents of the JSON file.</returns>
         /// <exception cref="InvalidOperationException"></exception>
         public static RootObject ReadRoadMapFromFile(string fileNamePrefix)

@@ -6,18 +6,24 @@ namespace SkillApp
 {
     public partial class PleaseWaitPage : ContentPage
     {
-        private int _counter;
-
-        public PleaseWaitPage()
+        RootObject obj;
+        public PleaseWaitPage(RootObject obj)
         {
             InitializeComponent();
-            StartLoadingAnimation();
+            this.obj = obj;
+            CheckRoadmap();
         }
 
-        private async void StartLoadingAnimation()
+        async void CheckRoadmap()
         {
-            
-            
+            if (Operator.GenerationSuccess)
+            {
+                await Navigation.PushAsync(new RoadmapPage(obj), true);
+            }
+            else
+            {
+                await Navigation.PushAsync(new FailedPage(), true);
+            }
         }
     }
 }
