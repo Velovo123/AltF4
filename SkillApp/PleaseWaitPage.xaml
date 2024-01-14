@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.PleaseWaitPage"
+             BackgroundColor="White">
+    <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+        <ScrollView>
+            <Grid>
+                <Image
+                Source="please_wait.png"
+                HeightRequest="550"
+                 WidthRequest="230"
+                Margin="0,0,0,0"
+                Aspect="Fill"
+            />
+                <StackLayout>
+                <Label
+                    x:Name="loadingLabel"
+                    Text="loading..."
+                    HeightRequest="20"
+                    WidthRequest="105"
+                    Margin="60,350,0,0"
+                    
+                    TextColor="Black"
+                    FontFamily="InterSemiBold"
+     />
+                <ActivityIndicator 
+                    x:Name="loadingIndicator"
+                    IsRunning="True"
+                    
+                    Margin="120,200,0,0"
+     />
+            </StackLayout>
+
+            <Image
+                Source="its_not_gonn_a_be_too_long.png"
+                HeightRequest="35"
+                WidthRequest="145"
+                Margin="0,150,0,0"
+                />
+        </Grid>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
