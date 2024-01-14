@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkillApp.VisualRoadmap">
+
+    <ContentPage.Background>
+
+        <LinearGradientBrush StartPoint="1,0 " EndPoint="0,1">
+            <GradientStop Color="#F9FAFB"
+                          Offset="0.1" />
+            <GradientStop Color="#85A4FF"
+                          Offset="4.5" />
+        </LinearGradientBrush>
+
+    </ContentPage.Background>
+
+    <VerticalStackLayout>
+
+        <Grid BackgroundColor="#00F9FAFB" Padding="10">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="38" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="38" />
+
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="ReturnImage" 
+                   Grid.Column="0"
+                   HeightRequest="32" 
+                   WidthRequest="32"  
+                   Source="return_icon.png" 
+                   Aspect="Fill">
+
+                <Image.GestureRecognizers>
+
+                    <TapGestureRecognizer Tapped="NatigateBack"
+                                          NumberOfTapsRequired="1" />
+
+                </Image.GestureRecognizers>
+
+            </Image>
+
+            <Label x:Name="TopTextLabel"
+                   Grid.Column="1" 
+                   Text="Roadmap" 
+                   FontSize="16"
+                   FontFamily="InterBold"
+                   TextColor="#1D3A70" 
+                   HeightRequest="25" 
+                   WidthRequest="180" 
+                   HorizontalTextAlignment="Center"/>
+
+            <Image x:Name="MenuImage" 
+                   Grid.Column="2" 
+                   HeightRequest="32" 
+                   WidthRequest="32"  
+                   Source="menu.png" 
+                   Aspect="Fill"/>
+
+        </Grid>
+
+        <Label HeightRequest="80"/>
+
+        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Default" ScrollX="6">
+
+            <HorizontalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_1.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_2.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_3.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_2.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_2.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="155"/>
+
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+
+                    <Image HeightRequest="300"
+                       WidthRequest="180"  
+                       Source="roadmap_piece_2.png"
+                       Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
+
+                    <Label HeightRequest="168"/>
+
+                </VerticalStackLayout>
+
+            </HorizontalStackLayout>
+            
+        </ScrollView>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

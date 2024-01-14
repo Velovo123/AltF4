@@ -9,6 +9,7 @@ namespace SkillAppTests
         [TestMethod]
         public async Task GenerateRoadMap_ValidInput_ReturnsRoadMap()
         {
+            Operator.GetApiKeyFromAzure();
             //Arrange
             var spheres = new List<string> { "Programming", "Data Science", "Web Development", "Machine Learning", "Cybersecurity" };
             var levels = new List<string> { "Beginner", "Intermediate", "Advanced" };
@@ -25,6 +26,7 @@ namespace SkillAppTests
             // Assert
             Assert.IsNotNull(roadmap);
             Assert.IsNotNull(roadmap.Roadmap);
+            Assert.IsNotNull(roadmap.Title);
             Assert.IsNotNull(roadmap.Aim);
             Assert.IsNotNull(roadmap.Supplementary_skills);
             Assert.IsNotNull(roadmap.Stay_abreast_strategies);
@@ -70,15 +72,6 @@ namespace SkillAppTests
             //Act and Assert
             await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await Operator.GenerateRoadMap(sphere, level, aim));
         }
-        [TestMethod]
-        public void ReadRoadMapFromFile_FileFound_ReturnsRootObject()
-        {
-            //Act
-            var obj = Operator.ReadRoadMapFromFile("Learn the Basics of Advanced Machine Learning");
-            
-            //Assert
-            Assert.IsNotNull(obj);
-        }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "JSON file is empty.")]
@@ -105,9 +98,28 @@ namespace SkillAppTests
             List<string> roadmapNames = Operator.GetAllRoadmaps();
 
             // Assert
-            CollectionAssert.AreEquivalent(new List<string> { "MachineLearning", "DataScience", "Programming",
-        "Learn the Basics of Data Science","Learn the Basics of Advanced Machine Learning"}, roadmapNames);
+            CollectionAssert.AreEquivalent(new List<string> { "MachineLearning", "DataScience", "Programming" }
+            , roadmapNames);
 
+        }
+
+        [TestMethod]
+        public void MoveRoadmapToCompleted_ValidRoadmap_MovesFileToCompletedDirectory()
+        {
+            // Arrange
+            CreateSampleRoadmapFile("Programming_20231228_120000.json");
+            string roadmapPrefix = "Programming";
+
+            // Act
+            Operator.MoveRoadmapToCompleted(roadmapPrefix);
+
+            // Assert
+            string completedDirectory = Path.Combine(roadmapDirectory, "Completed");
+            string completedFilePath = Path.Combine(completedDirectory, "Programming_20231228_120000.json");
+
+            Assert.IsTrue(File.Exists(completedFilePath), "File should exist in Completed directory");
+            Assert.IsFalse(File.Exists(Path.Combine(roadmapDirectory, "Programming_20231228_120000.json")),
+                "File should be removed from the original directory");
         }
 
         private static void CreateSampleRoadmapFile(string fileName)
@@ -116,24 +128,27 @@ namespace SkillAppTests
             File.WriteAllText(filePath, "{}");
         }
 
-        [TestCleanup]
+		[TestCleanup]
         public void TestCleanup()
         {
-            if (Directory.Exists(roadmapDirectory))
+			string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
+			if (Directory.Exists(roadmapDirectory))
             {
-                string[] files = Directory.GetFiles(roadmapDirectory, "*.json");
-
-                foreach (string file in files)
+				foreach (string file in files)
+				{
+					File.Delete(file);
+				}
+			}
+			if (Directory.Exists(Path.Combine(roadmapDirectory, "Completed")))
+            {
+                string[] directoryFiles = Directory.GetFiles(Path.Combine(roadmapDirectory, "Completed"), "*.json");
+                foreach (string file in directoryFiles)
                 {
-                    if (!file.EndsWith("Learn the Basics of Data Science_20231228_124805.json",
-                        StringComparison.OrdinalIgnoreCase)
-                        && !file.EndsWith("Learn the Basics of Advanced Machine Learning_20231228_015012.json",
-                        StringComparison.OrdinalIgnoreCase))
-                    {
-                        File.Delete(file);
-                    }
+                    File.Delete(file);
                 }
+                Directory.Delete(Path.Combine(roadmapDirectory, "Completed"));
             }
+
         }
 
 

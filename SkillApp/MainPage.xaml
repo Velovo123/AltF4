@@ -3,100 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SkillApp.MainPage"
              BackgroundColor="#F3F2FF">
-    <ScrollView>
-        
-        <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+
+    <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+
+        <Image
+            Source="main_page_rectangle.png"
+            HeightRequest="385"
+            WidthRequest="275"
+            Aspect="Fill"/>
+
+        <Label
+                HeightRequest="20"/>
+
+        <Button
+            x:Name="NewBtn"
+            CornerRadius="10"
+            HeightRequest="20"
+            WidthRequest="240"
+            Text="New"
+            FontFamily="InterRegular"
+            FontSize="13"
+            FontAutoScalingEnabled="True"
+            TextColor="#F3F2FF"
+            BackgroundColor="#7355FF"
+            Clicked="NavigateBroadRequestPage"
+            HorizontalOptions="Fill">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="0,5"
+                        Radius="3"
+                        Opacity="0.3" />
+            </Button.Shadow>
+        </Button>
+
+        <Button
+            x:Name="ContBtn"
+            CornerRadius="10"
+            HeightRequest="20"
+            WidthRequest="240"
+            Text="Continue" 
+            FontFamily="InterRegular"
+            FontSize="13"
+            FontAutoScalingEnabled="True"
+            TextColor="#7355FF"
+            BackgroundColor="#F3F2FF"
+            BorderColor="#7355FF"
+            BorderWidth="1"
+            Clicked="NavigateRoadmapSelectionPage"
+            HorizontalOptions="Fill">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="0,5"
+                        Radius="3"
+                        Opacity="0.3" />
+            </Button.Shadow>
             
-            <!--<Label
-                    HeightRequest="1"/>-->
-            
-            <!--<FlexLayout Direction="RowReverse" HeightRequest="25" >-->
-                
-                <!--<Label
-                    HeightRequest="25"
-                    WidthRequest="15"/>-->
+        </Button>
 
-                <!--<ImageButton 
-                   Source="settings.png"
-                   SemanticProperties.Description="SettingsButton"
-                   HeightRequest="35"
-                   WidthRequest="35"
-                   Padding="7"
-                   Clicked="NavigateSettings"
-                   Background="#201452"
-                   Aspect="Center"/>-->
-
-                <!--<Label
-                    HeightRequest="25"
-                    WidthRequest="15"/>-->
-
-                <!--<ImageButton 
-                   Source="crown_icon_1.png"
-                   SemanticProperties.Description="PremiumButton"
-                   HeightRequest="35"
-                   WidthRequest="35"
-                   Padding="7"
-                   Clicked="NavigatePremium"
-                   Background="#201452"
-                   Aspect="Center"/>-->
-
-            <!--</FlexLayout>-->
-
-            <!--<Label
-                    HeightRequest="40"/>-->
-
-            <Image
-                Source="main_page_rectangle.png"
-                HeightRequest="365"
-                WidthRequest="275"
-                Aspect="Fill"/>
-
-            <Label
-                    HeightRequest="20"/>
-
-            <Button
-                x:Name="NewBtn"
-                CornerRadius="10"
-                HeightRequest="25"
-                WidthRequest="240"
-                Text="New"
-                FontFamily="InterSemiBold"
-                FontSize="14"
-                FontAutoScalingEnabled="True"
-                TextColor="#F3F2FF"
-                BackgroundColor="#7355FF"
-                Clicked="NavigateRoadmapPage"
-                HorizontalOptions="Fill">
-                <Button.Shadow>
-                    <Shadow Brush="Black"
-                            Offset="0,5"
-                            Radius="3"
-                            Opacity="0.3" />
-                </Button.Shadow>
-            </Button>
-
-            <Button
-                x:Name="ContBtn"
-                CornerRadius="10"
-                HeightRequest="25"
-                WidthRequest="240"
-                Text="Continue" 
-                FontFamily="InterSemiBold"
-                FontSize="14"
-                FontAutoScalingEnabled="True"
-                TextColor="#7355FF"
-                BackgroundColor="#F3F2FF"
-                BorderColor="#7355FF"
-                BorderWidth="1"
-                HorizontalOptions="Fill">
-                <Button.Shadow>
-                    <Shadow Brush="Black"
-                            Offset="0,5"
-                            Radius="3"
-                            Opacity="0.3" />
-                </Button.Shadow>
-            </Button>
-        </VerticalStackLayout>
-    </ScrollView>
+    </VerticalStackLayout>
 
 </ContentPage>
