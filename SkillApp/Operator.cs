@@ -171,12 +171,6 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
                 {
                     throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
                 }
-
-				if(!(IsValidInput(sphere) && IsValidInput(level) && IsValidInput(aim)))
-                {
-					throw new ArgumentException("Invalid input parameters. Input may be malicious");
-				}
-
 				var openAiService = new OpenAIService(new OpenAiOptions()
                 {
                     ApiKey = OpenApiKey,
@@ -389,9 +383,11 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
 			}
 		}
 
-        private static bool IsValidInput(string inputStr)
+        public static bool IsValidInput(string inputStr)
 		{
-			return Regex.IsMatch(inputStr, "^[a-zA-Z ]+$") && inputStr.Length <= 50;
+            if (inputStr != null)
+                return Regex.IsMatch(inputStr, "^[a-zA-Z #]+$") && inputStr.Length <= 30 && inputStr.Length > 5;
+            else return false;
 		}
 
 	}

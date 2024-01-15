@@ -177,7 +177,7 @@
                 CornerRadius="10"
                 HeightRequest="25"
                 WidthRequest="240"
-                Text="Complete"
+                Text="Next"
                 FontFamily="InterSemiBold"
                 FontSize="13"
                 FontAutoScalingEnabled="True"
