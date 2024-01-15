@@ -32,10 +32,12 @@
                        WidthRequest="32"  
                        Source="return_icon.png" 
                        Aspect="Fill">
+                    
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="NatigateBack"
                                               NumberOfTapsRequired="1" />
                     </Image.GestureRecognizers>
+                    
                 </Image>
 
                 <Label x:Name="TopTextLabel"
@@ -53,7 +55,16 @@
                        HeightRequest="32" 
                        WidthRequest="32"  
                        Source="menu.png" 
-                       Aspect="Fill"/>
+                       Aspect="Fill">
+
+                    <Image.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateMenu"
+                                              NumberOfTapsRequired="1" />
+
+                    </Image.GestureRecognizers>
+
+                </Image>
 
             </Grid>
 

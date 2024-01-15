@@ -90,4 +90,8 @@ public partial class RoadmapSelectionPage : ContentPage
             await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
     }
+    async void NavigateMenu(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new MenuPage(), true);
+    }
 }

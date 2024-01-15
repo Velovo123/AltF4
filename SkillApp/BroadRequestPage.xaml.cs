@@ -15,4 +15,8 @@ public partial class BroadRequestPage : ContentPage
     {
         await Navigation.PopAsync();
     }
+    async void NavigateMenu(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new MenuPage(), true);
+    }
 }

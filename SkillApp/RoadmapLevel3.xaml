@@ -33,21 +33,30 @@
 
                 </Image>
 
-                <Label  Text="Learning" 
-                        FontSize="16"
-                        FontFamily="InterBold"
-                        TextColor="#1D3A70" 
-                        Grid.Column="1" 
-                        HeightRequest="25" 
-                        WidthRequest="180" 
-                        HorizontalTextAlignment="Center"/>
+                <Label Text="Learning" 
+                       FontSize="16"
+                       FontFamily="InterBold"
+                       TextColor="#1D3A70" 
+                       Grid.Column="1" 
+                       HeightRequest="25" 
+                       WidthRequest="180" 
+                       HorizontalTextAlignment="Center"/>
 
-                <Image Grid.Column="2" 
-                       x:Name="MenuImage" 
+                <Image x:Name="MenuImage" 
+                       Grid.Column="2" 
                        HeightRequest="32" 
                        WidthRequest="32"  
-                       Source="Menu.png" 
-                       Aspect="Fill"/>
+                       Source="menu.png" 
+                       Aspect="Fill">
+
+                    <Image.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateMenu"
+                                              NumberOfTapsRequired="1" />
+
+                    </Image.GestureRecognizers>
+
+                </Image>
 
             </Grid>
 

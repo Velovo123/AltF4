@@ -15,17 +15,14 @@ public partial class RequestPage : ContentPage
         string requestGeneral = RequestEntry.Text;
         CompleteBtn.Text = "Loading...";
         var obj = await Operator.GenerateRoadMap(requestField, desiredKnowledgeLevel, requestGeneral);
-        await Navigation.PushAsync(new RoadmapPage(obj), true);
+        await Navigation.PushAsync(new VisualRoadmap(obj), true);
     }
-
-    //async void NavigatePleaseWaitPage(System.Object sender, System.EventArgs e)
-    //{
-    //    string requestGeneral = RequestEntry.Text;
-    //    var obj = await Operator.GenerateRoadMap(requestField, desiredKnowledgeLevel, requestGeneral);
-    //    await Navigation.PushAsync(new PleaseWaitPage(obj), true);
-    //}
     async void NatigateBack(System.Object sender, System.EventArgs e)
     {
         await Navigation.PopAsync();
+    }
+    async void NavigateMenu(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new MenuPage(), true);
     }
 }

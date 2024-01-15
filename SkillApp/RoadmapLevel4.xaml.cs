@@ -21,4 +21,13 @@ public partial class RoadmapLevel4 : ContentPage
     {
         await Navigation.PopAsync();
     }
+    async void NavigateMenu(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new MenuPage(), true);
+    }
+    async void CompleteRoadmap(System.Object sender, System.EventArgs e)
+    {
+        Operator.MoveRoadmapToCompleted(obj.Title);
+        await Navigation.PushAsync(new RoadmapSelectionPage(), true);
+    }
 }
