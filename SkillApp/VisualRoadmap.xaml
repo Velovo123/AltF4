@@ -70,43 +70,38 @@
 
         </Grid>
 
-        <Label HeightRequest="80"/>
+        <Label HeightRequest="122"/>
 
         <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Default" ScrollX="6">
 
             <HorizontalStackLayout>
 
                 <VerticalStackLayout>
-                    <VerticalStackLayout>
 
-                        <Image HeightRequest="300"
-                           WidthRequest="180"  
-                           Source="roadmap_piece_1.png"
+                    <Image HeightRequest="300"
+                           WidthRequest="170"  
+                           Source="roadmap_1.png"
                            Aspect="Fill">
 
-                            <Image.GestureRecognizers>
+                        <Image.GestureRecognizers>
 
-                                <TapGestureRecognizer NumberOfTapsRequired="1" 
-                                                      Tapped="NavigateLevel1"/>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                  Tapped="NavigateLevel1"/>
 
-                            </Image.GestureRecognizers>
+                        </Image.GestureRecognizers>
 
-                        </Image>
+                    </Image>
 
-                        <Label/>
-
-                    </VerticalStackLayout>
-
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_2.png"
-                       Aspect="Fill">
+                           WidthRequest="155"  
+                           Source="roadmap_2.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -117,16 +112,16 @@
 
                     </Image>
 
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_3.png"
-                       Aspect="Fill">
+                           WidthRequest="180"  
+                           Source="roadmap_3.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -137,16 +132,16 @@
 
                     </Image>
 
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_4.png"
-                       Aspect="Fill">
+                           WidthRequest="135"  
+                           Source="roadmap_4.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -157,16 +152,16 @@
 
                     </Image>
 
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_5.png"
-                       Aspect="Fill">
+                           WidthRequest="160"  
+                           Source="roadmap_5.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -177,16 +172,16 @@
 
                     </Image>
 
-                    <Label HeightRequest="155"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 
-                <VerticalStackLayout>
+                <!--<VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_2.png"
-                       Aspect="Fill">
+                           WidthRequest="180"  
+                           Source="roadmap_6.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -197,16 +192,16 @@
 
                     </Image>
 
-                    <Label HeightRequest="168"/>
+                    <Label HeightRequest="123"/>
 
-                </VerticalStackLayout>
+                </VerticalStackLayout>-->
 
                 <VerticalStackLayout>
 
                     <Image HeightRequest="300"
-                       WidthRequest="180"  
-                       Source="roadmap_piece_2.png"
-                       Aspect="Fill">
+                           WidthRequest="180"  
+                           Source="roadmap_6.png"
+                           Aspect="Fill">
 
                         <Image.GestureRecognizers>
 
@@ -217,7 +212,7 @@
 
                     </Image>
 
-                    <Label HeightRequest="168"/>
+                    <Label HeightRequest="123"/>
 
                 </VerticalStackLayout>
 

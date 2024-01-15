@@ -93,7 +93,7 @@
                 <HorizontalStackLayout BackgroundColor="White" WidthRequest="240" HeightRequest="50">
 
                 <Entry x:Name="RequestEntry"
-                       Placeholder="I would like to learn how to ..."
+                       Placeholder="My goal is to ..."
                        TextColor="#1D3A70"
                        HeightRequest="55"
                        WidthRequest="255"/>

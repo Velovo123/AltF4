@@ -9,7 +9,7 @@
                
             <Image Aspect="Fill"
                     Source="roadmap_selection_background2.png"
-                    WidthRequest="265"
+                    WidthRequest="275"
                     HeightRequest="594"/>
                 
             <VerticalStackLayout>
@@ -69,7 +69,7 @@
                     
                 <Label HeightRequest="120"/>
                 
-                <Grid HorizontalOptions="Center" ColumnSpacing="16" RowSpacing="16">
+                <Grid HorizontalOptions="Center" ColumnSpacing="18" RowSpacing="16">
                         
                     <Grid.ColumnDefinitions>
 
