@@ -9,7 +9,7 @@
             <GradientStop Color="#F9FAFB"
                           Offset="0.1" />
             <GradientStop Color="#85A4FF"
-                          Offset="4.5" />
+                          Offset="2.5" />
         </LinearGradientBrush>
 
     </ContentPage.Background>
