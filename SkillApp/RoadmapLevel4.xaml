@@ -42,12 +42,21 @@
                         WidthRequest="180" 
                         HorizontalTextAlignment="Center"/>
 
-                <Image Grid.Column="2" 
-                       x:Name="MenuImage" 
+                <Image x:Name="MenuImage" 
+                       Grid.Column="2" 
                        HeightRequest="32" 
                        WidthRequest="32"  
-                       Source="Menu.png" 
-                       Aspect="Fill"/>
+                       Source="menu.png" 
+                       Aspect="Fill">
+
+                    <Image.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateMenu"
+                                              NumberOfTapsRequired="1" />
+
+                    </Image.GestureRecognizers>
+
+                </Image>
 
             </Grid>
 
@@ -177,25 +186,26 @@
 
             </mct:Expander>
 
-            <Button
-                x:Name="CompleteBtn"
-                Clicked="NavigateBack"
-                CornerRadius="10"
-                HeightRequest="25"
-                WidthRequest="240"
-                Text="Complete"
-                FontFamily="InterSemiBold"
-                FontSize="14"
-                FontAutoScalingEnabled="True"
-                TextColor="#F3F2FF"
-                BackgroundColor="#7355FF"
-                VerticalOptions="EndAndExpand">
-                <Button.Shadow>
-                    <Shadow Brush="Black"
-                            Offset="0,5"
-                            Radius="3"
-                            Opacity="0.3" />
-                </Button.Shadow>
+            <Button x:Name="CompleteBtn"
+                    Clicked="CompleteRoadmap"
+                    CornerRadius="10"
+                    HeightRequest="25"
+                    WidthRequest="240"
+                    Text="Complete"
+                    FontFamily="InterSemiBold"
+                    FontSize="14"
+                    FontAutoScalingEnabled="True"
+                    TextColor="#F3F2FF"
+                    BackgroundColor="#7355FF"
+                    VerticalOptions="EndAndExpand">
+                
+                    <Button.Shadow>
+                        <Shadow Brush="Black"
+                                Offset="0,5"
+                                Radius="3"
+                                Opacity="0.3" />
+                    </Button.Shadow>
+                
             </Button>
 
             <Label HeightRequest="40"/>

@@ -1,75 +1,128 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SkillApp.MenuPage"
-             >
-    <VerticalStackLayout>
-        <Grid>
+             x:Class="SkillApp.MenuPage">
+
+    <ContentPage.Background>
+
+        <LinearGradientBrush StartPoint="1,0 " EndPoint="0,1">
+            <GradientStop Color="#F9FAFB"
+                          Offset="0.1" />
+            <GradientStop Color="#85A4FF"
+                          Offset="4.5" />
+        </LinearGradientBrush>
+
+    </ContentPage.Background>
+
+    <ScrollView>
+
+        <VerticalStackLayout>
+
             <Grid BackgroundColor="#00F9FAFB" Padding="10">
 
                 <Grid.ColumnDefinitions>
+
                     <ColumnDefinition Width="38" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="38" />
+
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="ReturnImage" 
-           Grid.Column="0"
-           HeightRequest="32" 
-           WidthRequest="32"
-           Source="return.png" 
-           Aspect="Fill">
+                <Image  Grid.Column="0" 
+                        x:Name="ReturnImage" 
+                        HeightRequest="32" 
+                        WidthRequest="32"  
+                        Source="return_icon.png" 
+                        Aspect="Fill">
+
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer 
-                                  NumberOfTapsRequired="1" />
+
+                        <TapGestureRecognizer Tapped="NavigateBack"
+                                              NumberOfTapsRequired="1" />
+
                     </Image.GestureRecognizers>
+
                 </Image>
 
-                <Label x:Name="TopTextLabel"
-           Grid.Column="1" 
-           Text="Request" 
-           FontSize="16"
-           FontFamily="InterBold"
-           TextColor="#1D3A70" 
-           HeightRequest="25" 
-           WidthRequest="180" 
-           HorizontalTextAlignment="Center"/>
+                <Label  Text="Menu" 
+                        FontSize="16"
+                        FontFamily="InterBold"
+                        TextColor="#1D3A70" 
+                        Grid.Column="1" 
+                        HeightRequest="25" 
+                        WidthRequest="180" 
+                        HorizontalTextAlignment="Center"/>
 
-                <Image x:Name="MenuImage" 
-           Grid.Column="2" 
-           HeightRequest="32" 
-           WidthRequest="32"
-           Source="menu.png" 
-           Aspect="Fill"/>
+                <Image  x:Name="MenuImage" 
+                        Grid.Column="2" 
+                        HeightRequest="32" 
+                        WidthRequest="32"  
+                        Source="menu.png" 
+                        Aspect="Fill">
+
+                    <Image.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateMenu"
+                                              NumberOfTapsRequired="1" />
+
+                    </Image.GestureRecognizers>
+
+                </Image>
 
             </Grid>
-        </Grid>
-        <Grid>
-        <Image 
-            Source="menupage.png"
-            />
-            <Button
-                x:Name="HomePage"
-                WidthRequest="80"
-                HeightRequest="20"
-                Text="Home"
-                TextColor="#7355FF"
-                Margin="0,-300,100,0"
-                />
-            <Button
-                x:Name="ListPage"
-                WidthRequest="80"
-                HeightRequest="20"
-                Text="list"
-                Margin="0,-250,100,0"
-                />
-            <Button
-                x:Name="SubscribePage"
-                WidthRequest="90"
-                HeightRequest="20"
-                Text="subscribe"
-                Margin="0,-200,100,0"
-     /> 
-        </Grid>
-    </VerticalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="Start">
+
+                <Label HeightRequest="15"/>
+
+                <Label BackgroundColor="#00FFFFFF"
+                       Text="Home"
+                       TextColor="#6F50FF"
+                       FontFamily="PoppingSemiBold"
+                       FontSize="20"
+                       HeightRequest="25"
+                       WidthRequest="100"
+                       Margin="20,10,0,0">
+
+                    <Label.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateHomePage"
+                                              NumberOfTapsRequired="1" />
+
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+                <Label BackgroundColor="#00FFFFFF"
+                       Text="List"
+                       TextColor="#61656D"
+                       FontFamily="PoppinsRegular"
+                       FontSize="16"
+                       HeightRequest="25"
+                       WidthRequest="100"
+                       Margin="20,10,0,0">
+
+                    <Label.GestureRecognizers>
+
+                        <TapGestureRecognizer Tapped="NavigateListPage"
+                                              NumberOfTapsRequired="1" />
+
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="EndAndExpand">
+
+                <Image HeightRequest="400"
+                       WidthRequest="180"
+                       Source="menupage.png"/>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
 </ContentPage>

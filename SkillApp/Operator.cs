@@ -15,7 +15,7 @@ namespace SkillApp
         public static bool GenerationSuccess { get; private set; } = false;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        private static string OpenApiKey /*= "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"*/;
+        private static string OpenApiKey = "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";
 
 		private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 

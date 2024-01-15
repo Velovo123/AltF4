@@ -41,15 +41,12 @@ public partial class RequestPage : ContentPage
 			CompleteBtn.Background = new SolidColorBrush(color);
 		}
     }
-
-    //async void NavigatePleaseWaitPage(System.Object sender, System.EventArgs e)
-    //{
-    //    string requestGeneral = RequestEntry.Text;
-    //    var obj = await Operator.GenerateRoadMap(requestField, desiredKnowledgeLevel, requestGeneral);
-    //    await Navigation.PushAsync(new PleaseWaitPage(obj), true);
-    //}
     async void NatigateBack(System.Object sender, System.EventArgs e)
     {
         await Navigation.PopAsync();
+    }
+    async void NavigateMenu(System.Object sender, System.EventArgs e)
+    {
+        await Navigation.PushAsync(new MenuPage(), true);
     }
 }

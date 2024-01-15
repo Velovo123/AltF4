@@ -50,11 +50,20 @@
                             HorizontalTextAlignment="Center"/>
 
                     <Image x:Name="MenuImage" 
-                            Grid.Column="2" 
-                            HeightRequest="32" 
-                            WidthRequest="32"  
-                            Source="menu.png" 
-                            Aspect="Fill"/>
+                           Grid.Column="2" 
+                           HeightRequest="32" 
+                           WidthRequest="32"  
+                           Source="menu.png" 
+                           Aspect="Fill">
+
+                        <Image.GestureRecognizers>
+
+                            <TapGestureRecognizer Tapped="NavigateMenu"
+                                                  NumberOfTapsRequired="1" />
+
+                        </Image.GestureRecognizers>
+
+                    </Image>
 
                 </Grid>
                     
