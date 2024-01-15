@@ -31,7 +31,7 @@ public partial class RequestPage : ContentPage
 				}
 			});
 			var obj = await Operator.GenerateRoadMap(requestField, desiredKnowledgeLevel, requestGeneral);
-            await Navigation.PushAsync(new RoadmapPage(obj), true);
+            await Navigation.PushAsync(new VisualRoadmap(obj), true);
         }
         else
         {
