@@ -17,7 +17,7 @@ namespace SkillApp
 
         private static string OpenApiKey = "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";
 
-		private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
+        private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
         private static readonly string promptTemplate1 = @"Create a detailed roadmap to enhance expertise and knowledge in [{0}], specifically focusing on [{1}] aiming to [{2}]. The roadmap is structured into three levels - Beginner, Intermediate, and Advanced - each containing tasks, subtasks, milestones, and recommended resources.
 
@@ -162,16 +162,16 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
         }
         public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
-            
-			try
-			{
+
+            try
+            {
                 GenerationSuccess = false;
                 log.Info("Starting generate roadmap");
                 if (string.IsNullOrWhiteSpace(sphere) || string.IsNullOrWhiteSpace(level) || string.IsNullOrWhiteSpace(aim))
                 {
                     throw new ArgumentException("Invalid input parameters. Sphere, level, and aim cannot be null or empty.");
                 }
-				var openAiService = new OpenAIService(new OpenAiOptions()
+                var openAiService = new OpenAIService(new OpenAiOptions()
                 {
                     ApiKey = OpenApiKey,
                 });
@@ -217,7 +217,7 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
                     throw new InvalidOperationException($"Error: {completionResult.Error?.Message ?? "Unknown error"}");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 log.Error($"An unexpected error occurred: {ex.Message}", ex);
                 throw;
@@ -267,7 +267,7 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
                     throw new InvalidOperationException($"No matching file found for prefix '{fileNamePrefix}'.");
                 }
             }
-            catch(InvalidOperationException ex)
+            catch (InvalidOperationException ex)
             {
                 log.Error($"An unexpected error occurred: {ex.Message}", ex);
                 throw;
@@ -310,50 +310,50 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
             catch (Exception ex)
             {
                 log.Error($"An unexpected error occurred: {ex.Message}", ex);
-                throw;  
+                throw;
             }
         }
 
-		public static void MoveRoadmapToCompleted(string roadmapPrefix)
-		{
-			try
-			{
-				EnsureDirectoryExists();
+        public static void MoveRoadmapToCompleted(string roadmapPrefix)
+        {
+            try
+            {
+                EnsureDirectoryExists();
 
-				string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{roadmapPrefix}_*.json");
+                string[] matchingFiles = Directory.GetFiles(roadmapDirectory, $"{roadmapPrefix}_*.json");
 
-				if (matchingFiles.Length > 0)
-				{
-					string latestFilePath = matchingFiles[0];
+                if (matchingFiles.Length > 0)
+                {
+                    string latestFilePath = matchingFiles[0];
 
-					if (!string.IsNullOrEmpty(latestFilePath))
-					{
-						string completedDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps", "Completed");
-						EnsureDirectoryExists(completedDirectory);
+                    if (!string.IsNullOrEmpty(latestFilePath))
+                    {
+                        string completedDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps", "Completed");
+                        EnsureDirectoryExists(completedDirectory);
 
-						string newFilePath = Path.Combine(completedDirectory, Path.GetFileName(latestFilePath));
+                        string newFilePath = Path.Combine(completedDirectory, Path.GetFileName(latestFilePath));
 
-						File.Move(latestFilePath, newFilePath);
-						log.Info($"Roadmap moved to Completed directory: {newFilePath}");
-					}
-					else
-					{
-						throw new InvalidOperationException($"Failed to determine the latest file for prefix '{roadmapPrefix}'.");
-					}
-				}
-				else
-				{
-					throw new InvalidOperationException($"No matching file found for prefix '{roadmapPrefix}'.");
-				}
-			}
-			catch (Exception ex)
-			{
-				log.Error($"An unexpected error occurred: {ex.Message}", ex);
-				throw;
-			}
-		}
+                        File.Move(latestFilePath, newFilePath);
+                        log.Info($"Roadmap moved to Completed directory: {newFilePath}");
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException($"Failed to determine the latest file for prefix '{roadmapPrefix}'.");
+                    }
+                }
+                else
+                {
+                    throw new InvalidOperationException($"No matching file found for prefix '{roadmapPrefix}'.");
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error($"An unexpected error occurred: {ex.Message}", ex);
+                throw;
+            }
+        }
 
-		private static RootObject DeserializeRoadMap(string json)
+        private static RootObject DeserializeRoadMap(string json)
         {
             try
             {
@@ -366,7 +366,7 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
             }
         }
 
- 
+
         private static void EnsureDirectoryExists()
         {
             if (!Directory.Exists(roadmapDirectory))
@@ -375,20 +375,81 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
             }
         }
 
-		private static void EnsureDirectoryExists(string directoryPath)
-		{
-			if (!Directory.Exists(directoryPath))
-			{
-				Directory.CreateDirectory(directoryPath);
-			}
-		}
+        private static void EnsureDirectoryExists(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
 
         public static bool IsValidInput(string inputStr)
-		{
-            if (inputStr != null)
-                return Regex.IsMatch(inputStr, "^[a-zA-Z #]+$") && inputStr.Length <= 30 && inputStr.Length > 5;
-            else return false;
+        {
+			if (inputStr != null)
+			{
+				if (inputStr.Length <= 30 && inputStr.Length > 5)
+				{
+					if (Regex.IsMatch(inputStr, "^[a-zA-Z #]+$"))
+					{
+						if (IsValidString(inputStr) && CalculateEntropy(inputStr) >= 2.5)
+						{
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
 		}
 
+
+		private static double CalculateEntropy(string inputStr)
+		{
+			var charCounts = new Dictionary<char, int>();
+			int totalChars = 0;
+
+			foreach (char c in inputStr)
+			{
+				if (char.IsLetter(c))
+				{
+					totalChars++;
+					if (charCounts.ContainsKey(c))
+					{
+						charCounts[c]++;
+					}
+					else
+					{
+						charCounts[c] = 1;
+					}
+				}
+			}
+
+			double entropy = 0.0;
+			foreach (int count in charCounts.Values)
+			{
+				double probability = (double)count / totalChars;
+				entropy -= probability * Math.Log(probability, 2);
+			}
+
+			return entropy;
+		}
+
+		private static bool IsValidString(string inputStr)
+		{
+			return inputStr != null && inputStr.Length <= 30 && inputStr.Length > 5 ||
+				   ContainsWordPair(inputStr, "ar") || ContainsWordPair(inputStr, "er") ||
+				   ContainsWordPair(inputStr, "ing") || ContainsWordPair(inputStr, "cs") ||
+				   ContainsWordPair(inputStr, "tion") || ContainsWordPair(inputStr, "ment") ||
+				   ContainsWordPair(inputStr, "ology") || ContainsWordPair(inputStr, "ful") ||
+				   ContainsWordPair(inputStr, "less") || ContainsWordPair(inputStr, "ly") ||
+				   ContainsWordPair(inputStr, "able") || ContainsWordPair(inputStr, "ness") ||
+				   ContainsWordPair(inputStr, "ive") || ContainsWordPair(inputStr, "less") ||
+				   ContainsWordPair(inputStr, "ic") || ContainsWordPair(inputStr, "ism");
+		}
+
+		private static bool ContainsWordPair(string inputStr, string wordPair)
+		{
+			return Regex.IsMatch(inputStr, $@"\b{wordPair}\b", RegexOptions.IgnoreCase);
+		}
 	}
 }
