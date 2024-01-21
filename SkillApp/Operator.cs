@@ -15,7 +15,7 @@ namespace SkillApp
         public static bool GenerationSuccess { get; private set; } = false;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        private static string OpenApiKey = "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";
+        private static string OpenApiKey;
 
         private static readonly string roadmapDirectory = Path.Combine(AppContext.BaseDirectory, "Roadmaps");
 
@@ -140,15 +140,7 @@ Notice that there must be 3 tasks for every level, 3 subtasks for every task,you
 
 Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SHORT_AIM_Value_Here"", ""roadmap"": { ""beginner"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""intermediate"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] }, ""advanced"": { ""tasks"": [ {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []}, {""task"": """", ""subtasks"": [], ""resources"": []} ], ""milestones"": [] } }, ""supplementary_skills"": [], ""stay_abreast_strategies"": [] }";
 
-        /// <summary>
-        /// Generates a roadmap based on the provided parameters using the OpenAI GPT-3.5 Turbo model.
-        /// </summary>
-        /// <param name="sphere">The sphere value.</param>
-        /// <param name="level">The level value.</param>
-        /// <param name="aim">The aim value.</param>
-        /// <returns>The deserialized roadmap object.</returns>
-        /// <exception cref="Exception">Thrown when an error occurs during the generation process.</exception>
-        /// 
+ 
 
         public static void GetApiKeyFromAzure()
         {
@@ -160,7 +152,17 @@ Roadmap format: @""{ ""title"": ""Roadmap_Title(1-2 words)"", ""aim"": ""Your_SH
 
             OpenApiKey = secret.Value.Value;
         }
-        public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
+
+		/// <summary>
+		/// Generates a roadmap based on the provided parameters using the OpenAI GPT-3.5 Turbo model.
+		/// </summary>
+		/// <param name="sphere">The sphere value.</param>
+		/// <param name="level">The level value.</param>
+		/// <param name="aim">The aim value.</param>
+		/// <returns>The deserialized roadmap object.</returns>
+		/// <exception cref="Exception">Thrown when an error occurs during the generation process.</exception>
+		/// 
+		public static async Task<RootObject> GenerateRoadMap(string sphere, string level, string aim)
         {
 
             try

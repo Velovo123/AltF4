@@ -25,8 +25,8 @@ namespace SkillApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-
-            return builder.Build();
-        }
+			Operator.GetApiKeyFromAzure();
+			return builder.Build();
+		}
     }
 }

@@ -5,7 +5,8 @@
         public MainPage()
         {
             InitializeComponent();
-        }
+			
+		}
         async void NavigateBroadRequestPage(System.Object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new BroadRequestPage(), true);
@@ -14,6 +15,6 @@
         {
             await Navigation.PushAsync(new RoadmapSelectionPage(), true);
         }
-    }
+	}
 
 }
